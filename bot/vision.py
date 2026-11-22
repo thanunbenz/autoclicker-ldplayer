@@ -12,12 +12,6 @@ def load_template(name: str) -> np.ndarray:
         tpl = cv2.imread(str(path), cv2.IMREAD_COLOR)
         if tpl is not None:
             return tpl
-    from . import assets
-    data = assets.template_bytes(name)
-    if data is not None:
-        tpl = cv2.imdecode(np.frombuffer(data, np.uint8), cv2.IMREAD_COLOR)
-        if tpl is not None:
-            return tpl
     raise FileNotFoundError(f"Template not found: {name}")
 
 SCALE_EPS = 0.005

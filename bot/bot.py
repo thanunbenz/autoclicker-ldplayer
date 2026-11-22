@@ -25,11 +25,10 @@ FIT_COARSE_WIDTH = 720
 FIT_SNAP = 0.02
 
 def _auto_registered(buttons: dict) -> dict:
-    from . import assets
     known = {b.get("template") for b in buttons.values()}
-    tpl_files = [n for n in assets.template_names() if "/" not in n]
+    tpl_files = []
     if TEMPLATES_DIR.exists():
-        tpl_files = [p.name for p in sorted(TEMPLATES_DIR.glob("*.png"))] + tpl_files
+        tpl_files = [p.name for p in sorted(TEMPLATES_DIR.glob("*.png"))]
     out, seen = {}, set()
     for fname in tpl_files:
         stem = fname[:-4] if fname.endswith(".png") else fname

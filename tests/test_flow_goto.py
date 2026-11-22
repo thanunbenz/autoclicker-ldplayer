@@ -8,10 +8,17 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from bot import flow as F
 
-FLOWS = Path(__file__).resolve().parent.parent / "data" / "config" / "flows"
+FIXTURES = Path(__file__).resolve().parent / "fixtures"
+_ORIGINAL_FLOWS_DIR = F.FLOWS_DIR
+
+def setUpModule():
+    F.FLOWS_DIR = FIXTURES
+
+def tearDownModule():
+    F.FLOWS_DIR = _ORIGINAL_FLOWS_DIR
 
 def flow_files():
-    return sorted(p for p in FLOWS.glob("*.json")
+    return sorted(p for p in FIXTURES.glob("*.json")
                   if not p.name.endswith((".bak.json", ".json.tmp")))
 
 def raw_step_count(raw_steps) -> int:
@@ -39,7 +46,13 @@ def gate_key(step) -> str:
 
 LONG_WAIT = 60.0
 
-GOTO_LANDS_ON = {"default": {}}
+GOTO_LANDS_ON = {
+    "gates": {
+        "guard home_button": "goto_step",
+        "skip_if_seen skip_label": "tap done_button",
+        "goto_step ": "tap done_button",
+    },
+}
 
 def landing_of(flow, step) -> str:
     if step.goto < 1:

@@ -1,0 +1,48 @@
+{
+  "name": "gates",
+  "description": "Synthetic flow used by the gate tests.",
+  "group_defs": ["setup", "run"],
+  "jump": {
+    "start": -1,
+    "end": -1
+  },
+  "steps": [
+    {
+      "action": "guard",
+      "target": "home_button",
+      "goto": 4,
+      "group": "setup",
+      "timeout": 2
+    },
+    {
+      "action": "tap",
+      "target": "play_button",
+      "group": "setup",
+      "timeout": 2
+    },
+    {
+      "action": "skip_if_seen",
+      "target": "skip_label",
+      "goto": 5,
+      "group": "run",
+      "timeout": 0
+    },
+    {
+      "action": "goto_step",
+      "goto": 5,
+      "group": "run"
+    },
+    {
+      "action": "tap",
+      "target": "done_button",
+      "group": "run",
+      "timeout": 2
+    },
+    {
+      "action": "tap",
+      "target": "home_button",
+      "group": "run",
+      "timeout": 2
+    }
+  ]
+}

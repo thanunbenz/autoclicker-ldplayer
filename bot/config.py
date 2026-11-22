@@ -15,7 +15,6 @@ def _base_dirs() -> tuple[Path, Path]:
     return root / "data", root / "data"
 
 DATA_ROOT, BUNDLE_ROOT = _base_dirs()
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 LOG_DETAIL = not getattr(sys, "frozen", False)
 TEMPLATES_DIR = DATA_ROOT / "templates"
@@ -144,16 +143,7 @@ def read_json(path: Path, default=None):
 def read_buttons_file() -> tuple[dict, dict]:
     data = read_json(BUTTONS_FILE) if BUTTONS_FILE.exists() else None
     if not isinstance(data, dict):
-        from . import assets
-        raw = assets.buttons_bytes()
-        if raw is None:
-            return {}, {}
-        try:
-            data = json.loads(raw.decode("utf-8"))
-        except (ValueError, UnicodeError):
-            return {}, {}
-        if not isinstance(data, dict):
-            return {}, {}
+        return {}, {}
     meta = data.get(BUTTONS_META_KEY)
     buttons = {k: v for k, v in data.items() if not k.startswith("_")}
     return buttons, meta if isinstance(meta, dict) else {}
@@ -277,30 +267,6 @@ def set_ldplayer_dir(path) -> None:
     settings = _load_settings()
     settings["ldplayer_dir"] = str(path)
     write_json(SETTINGS_FILE, settings)
-
-def _clean_indices(raw) -> list[int]:
-    out = set()
-    for v in raw or []:
-        try:
-            i = int(v)
-        except (TypeError, ValueError):
-            continue
-        if i >= 0:
-            out.add(i)
-    return sorted(out)
-
-def get_selected_screens() -> list[int] | None:
-    raw = _load_settings().get("screens_selected")
-    if not isinstance(raw, list):
-        return None
-    return _clean_indices(raw)
-
-def set_selected_screens(indices) -> list[int]:
-    clean = _clean_indices(indices)
-    settings = _load_settings()
-    settings["screens_selected"] = clean
-    write_json(SETTINGS_FILE, settings)
-    return clean
 
 def adb_path() -> Path:
     return get_ldplayer_dir() / "adb.exe"

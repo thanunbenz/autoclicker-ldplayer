@@ -488,27 +488,16 @@ def flow_path(name: str):
     return FLOWS_DIR / f"{_safe_name(name)}.json"
 
 def list_flows() -> list[str]:
-    names = set()
     try:
         names = {p.stem for p in FLOWS_DIR.glob("*.json")
                  if not p.name.endswith((".bak.json", ".json.tmp"))}
     except OSError:
-        pass
-    from . import assets
-    names.update(assets.flow_names())
+        names = set()
     return sorted(names)
 
 def load_flow(name: str) -> Flow:
     path = flow_path(name)
     if not path.exists():
-        from . import assets
-        raw = assets.flow_bytes(_safe_name(name))
-        if raw is not None:
-            try:
-                return from_dict(json.loads(raw.decode("utf-8")),
-                                 fallback_name=_safe_name(name))
-            except (ValueError, UnicodeError):
-                pass
         return Flow(name=_safe_name(name))
     for attempt in range(READ_RETRIES):
         try:

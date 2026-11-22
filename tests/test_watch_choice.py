@@ -44,7 +44,6 @@ def runner_with(bot, log=None):
     fr.should_stop = lambda: False
     fr.wait_if_paused = lambda: None
     fr._in_game = False
-    fr._cap_tick = 0
     return fr
 
 def step_of(action, **kw):
@@ -59,10 +58,10 @@ def choice_flow(group=BOOST_GROUP, note=TITLE, until=None, enabled=True):
                    until=F.join_until(BOOSTS if until is None else until),
                    poll=0.5, timeout=30, note=note, group=group, enabled=enabled)
     f.steps = [
-        F.Step(action="if_seen", target="random_button", group=group,
-               steps=[F.Step(action="tap", target="random_button", group=group),
-                      F.Step(action="tap", target="Multi_buy_1_button", group=group),
-                      F.Step(action="tap", target="Multi_buy_2_button", group=group),
+        F.Step(action="if_seen", target="alpha_button", group=group,
+               steps=[F.Step(action="tap", target="alpha_button", group=group),
+                      F.Step(action="tap", target="gamma_button", group=group),
+                      F.Step(action="tap", target="delta_button", group=group),
                       inner]),
     ]
     return f
@@ -146,7 +145,7 @@ class SameRunAsWatchUntilTest(unittest.TestCase):
     def test_no_calibrated_candidate_at_all_is_the_old_skip(self):
         for act in self.KINDS:
             with self.subTest(action=act):
-                bot = FakeBot(["random_button"])
+                bot = FakeBot(["alpha_button"])
                 self.assertEqual(runner_with(bot)._play("0", step_of(act)), "skip")
 
     def test_one_screenshot_covers_every_candidate(self):
@@ -231,7 +230,7 @@ class LogTest(unittest.TestCase):
     def test_nothing_calibrated_is_reported_without_naming_images(self):
         F.DETAIL = True
         out = []
-        bot = FakeBot(["random_button"])
+        bot = FakeBot(["alpha_button"])
         runner_with(bot, log=out.append)._play("5.3", step_of("watch_choice", note=TITLE))
         for leak in LEAKS:
             self.assertNotIn(leak, "\n".join(out))

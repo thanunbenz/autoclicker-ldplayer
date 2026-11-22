@@ -55,7 +55,6 @@ def runner_with(bot):
     fr.should_stop = lambda: False
     fr.wait_if_paused = lambda: None
     fr._in_game = False
-    fr._cap_tick = 0
     return fr
 
 class SwipeIsAKnownActionTest(unittest.TestCase):

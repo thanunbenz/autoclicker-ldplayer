@@ -23,7 +23,18 @@ automate, and follow the terms of service of the apps you use.
 - Windows 10 or 11
 - Python 3.14 (tested); other 3.x versions may work
 - LDPlayer 9 or 14 with ADB debugging enabled on each instance
-- Python packages listed in `requirements.txt`
+
+Libraries used by the project:
+
+| Library | Version | Used for |
+|---|---|---|
+| `opencv-python` | 5.0.0.93 | Template matching, image resize, and screen capture decoding |
+| `numpy` | 2.5.1 | Image arrays |
+| `Pillow` | 12.3.0 | Template calibrator |
+| `pywebview` | 6.2.1 | Flow Editor window and JavaScript bridge |
+
+The calibrator and folder picker also use `tkinter`, which ships with Python
+on Windows.
 
 Install the dependencies with either command:
 
@@ -192,7 +203,9 @@ ADB.
 
 ## Contributing
 
-Issues and pull requests are welcome. Run `make test` before sending a change.
+Issues and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md)
+for setup, coding guidelines, and the pull request process. Run `make test`
+before sending a change. Every pull request runs the same tests on Windows CI.
 
 ## Third-party notices
 
