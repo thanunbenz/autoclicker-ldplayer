@@ -86,12 +86,9 @@ bot/                  Core engine
   vision.py           OpenCV template matching
   bot.py              Device, buttons, and autofit
   flow.py             Flow model and runner
-  assets.py           Optional sealed asset loader
-  vault.py            File sealing helpers
-  version.py          Application name and version
 data/
   config/
-    buttons.json      Button names to template files and coordinates
+    buttons.json      Local button map, created by the calibrator
     settings.json     Local settings, created at runtime
     flows/default.json  Starter flow, empty by default
     templates/        Template PNGs, created when you calibrate a button
@@ -104,13 +101,14 @@ editor/
 tests/                Offline unit tests
 ```
 
-`data/config/settings.json`, `data/config/autofit.json`, and
-`data/config/floweditor-ui.json` are local state and are ignored by git. A
-fresh clone creates the settings it needs on first run.
+`data/config/settings.json`, `data/config/buttons.json`,
+`data/config/autofit.json`, and `data/config/floweditor-ui.json` are local
+state and are ignored by git. A fresh clone creates them when needed.
 
-`data/config/flows/default.json` and `data/config/buttons.json` start almost
-empty. Use the Flow Editor to add steps, and use the calibrator to crop
-templates and add buttons for the app you want to automate.
+`data/config/flows/default.json` starts empty. `data/config/buttons.json` is
+created when you calibrate your first button. Use the Flow Editor to add
+steps, and use the calibrator to crop templates and add buttons for the app
+you want to automate.
 
 ## How it works
 

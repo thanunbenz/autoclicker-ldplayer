@@ -2,6 +2,9 @@ __pycache__/
 *.py[cod]
 
 # local state written at runtime
+data/config
+data/templates
+data/config/buttons.json
 data/config/settings.json
 data/config/floweditor-ui.json
 data/config/autofit.json

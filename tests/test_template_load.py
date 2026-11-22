@@ -41,12 +41,10 @@ class LoadTemplateTest(unittest.TestCase):
         self.assertEqual(len(self.reads), 1, "ไม่ได้อ่านจากดิสก์ทั้งที่ไฟล์มี")
 
     def test_orphan_buttons_have_no_missing_template(self):
-        import json
-
         from bot import config as C
-        raw = json.loads((C.CONFIG_DIR / "buttons.json").read_text(encoding="utf-8"))
+        buttons, _meta = C.read_buttons_file()
         missing = []
-        for name, b in raw.items():
+        for name, b in buttons.items():
             f = (b or {}).get("template") if isinstance(b, dict) else None
             if f and not (C.TEMPLATES_DIR / f).is_file():
                 missing.append(f"{name} -> {f}")
