@@ -1,0 +1,5 @@
+# Pinned runtime dependencies. Tested on Python 3.14 and Windows 11.
+opencv-python==5.0.0.93
+numpy==2.5.1
+Pillow==12.3.0
+pywebview==6.2.1

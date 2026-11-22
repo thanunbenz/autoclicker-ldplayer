@@ -1,0 +1,4134 @@
+<!doctype html>
+<html class="dark" lang="th">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Flow Editor - LDPlayer Auto Clicker</title>
+
+  <style>
+/*! Tailwind CSS v3.4.16 preflight (base reset) · MIT License
+ * Copyright (c) Tailwind Labs, Inc.  https://tailwindcss.com
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of
+ * this software and associated documentation files (the "Software"), to deal in
+ * the Software without restriction, subject to the condition that the above
+ * copyright notice and this permission notice be included in all copies.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+ * Full text: https://tailwindcss.com
+ */
+
+*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:currentColor}
+::after,::before{--tw-content:''}
+:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:"Noto Sans Thai App","Leelawadee UI","Segoe UI",Tahoma,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}
+body{margin:0;line-height:inherit}
+hr{height:0;color:inherit;border-top-width:1px}
+abbr:where([title]){text-decoration:underline dotted}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}
+a{color:inherit;text-decoration:inherit}
+b,strong{font-weight:bolder}
+code,kbd,pre,samp{font-family:"Cascadia Mono",Consolas,ui-monospace,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sub{bottom:-.25em}
+sup{top:-.5em}
+table{text-indent:0;border-color:inherit;border-collapse:collapse}
+button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}
+button,select{text-transform:none}
+button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}
+:-moz-focusring{outline:auto}
+:-moz-ui-invalid{box-shadow:none}
+progress{vertical-align:baseline}
+::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}
+[type=search]{-webkit-appearance:textfield;outline-offset:-2px}
+::-webkit-search-decoration{-webkit-appearance:none}
+::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
+summary{display:list-item}
+blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}
+fieldset{margin:0;padding:0}
+legend{padding:0}
+menu,ol,ul{list-style:none;margin:0;padding:0}
+dialog{padding:0}
+textarea{resize:vertical}
+input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}
+[role=button],button{cursor:pointer}
+:disabled{cursor:default}
+audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}
+img,video{max-width:100%;height:auto}
+[hidden]:where(:not([hidden=until-found])){display:none}
+
+.flex {
+      display: flex;
+    }
+
+    .grid {
+      display: grid;
+    }
+
+    .flex-col {
+      flex-direction: column;
+    }
+
+    .flex-wrap {
+      flex-wrap: wrap;
+    }
+
+    .flex-1 {
+      flex: 1 1 0%;
+    }
+
+    .shrink-0 {
+      flex-shrink: 0;
+    }
+
+    .items-start {
+      align-items: flex-start;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .justify-center {
+      justify-content: center;
+    }
+
+    .justify-between {
+      justify-content: space-between;
+    }
+
+    .gap-1 {
+      gap: 0.25rem;
+    }
+
+    .gap-2 {
+      gap: 0.5rem;
+    }
+
+    .gap-3 {
+      gap: 0.75rem;
+    }
+
+    .grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-cols-12 {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+
+    .col-span-2 {
+      grid-column: span 2 / span 2;
+    }
+
+    .col-span-4 {
+      grid-column: span 4 / span 4;
+    }
+
+    .col-span-8 {
+      grid-column: span 8 / span 8;
+    }
+
+    .h-full {
+      height: 100%;
+    }
+
+    .min-w-0 {
+      min-width: 0px;
+    }
+
+    .overflow-hidden {
+      overflow: hidden;
+    }
+
+    @font-face {
+      font-family: "Noto Sans Thai App";
+      src: url("font/noto-sans-thai-latin.woff2") format("woff2");
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+        U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    @font-face {
+      font-family: "Noto Sans Thai App";
+      src: url("font/noto-sans-thai-thai.woff2") format("woff2");
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+      unicode-range: U+02D7, U+0303, U+0331, U+0E01-0E5B, U+200C-200D, U+25CC;
+    }
+
+    .ui {
+      --bg: #141311;
+      --surface: #1c1c19;
+      --card: #1b1a17;
+      --high: #22211e;
+      --higher: #2a2925;
+      --text: #e8e4df;
+      --text-2: #b8ada3;
+      --text-3: #9a897d;
+      --primary: #feb77d;
+      --on-primary: #4d2700;
+      --ok: #8fce4d;
+      --on-ok: #20340a;
+      --warn: #ffd7b0;
+      --danger: #ff8f8f;
+      --stop-bg: #5c1f1f;
+      --stop-fg: #ffd9d9;
+      --line: #35332f;
+      --line-2: #7a7770;
+      --focus: #ffd7b0;
+
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+
+      --radius-sm: 8px;
+      --radius: 12px;
+      --radius-lg: 16px;
+      --pill: 999px;
+
+      --fs-xs: 14px;
+      --fs-sm: 15px;
+      --fs-md: 16px;
+
+      --font: "Noto Sans Thai App", "Leelawadee UI", "Noto Sans Thai", "Segoe UI",
+        Tahoma, system-ui, sans-serif;
+      --font-mono: "Cascadia Mono", Consolas, "SF Mono", ui-monospace, monospace;
+
+      --t: 180ms cubic-bezier(0.2, 0, 0.2, 1);
+    }
+
+    html {
+      height: 100%;
+    }
+
+    .ui :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+      border-radius: 6px;
+    }
+
+    .ui .sr {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .ui .scroll {
+      overflow-y: auto;
+      scrollbar-gutter: stable;
+    }
+
+    .ui .scroll::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    .ui .scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .ui .scroll::-webkit-scrollbar-thumb {
+      background: #47443e;
+      border: 3px solid transparent;
+      background-clip: content-box;
+      border-radius: var(--pill);
+    }
+
+    .ui .scroll::-webkit-scrollbar-thumb:hover {
+      background: var(--line-2);
+      background-clip: content-box;
+    }
+
+    .ui .app {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .ui .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+      height: 52px;
+      padding: 0 var(--space-4);
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+      flex: none;
+    }
+
+    .ui .vlist {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .ui .hint {
+      font-size: var(--fs-xs);
+      line-height: 1.5;
+      color: var(--text-3);
+    }
+
+    .ui .hint-warn {
+      color: var(--warn);
+    }
+
+    .ui .btn:hover:not(:disabled) {
+      background: var(--higher);
+    }
+
+    .ui .btn:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+
+    .ui .btn:disabled {
+      opacity: .45;
+      cursor: default;
+    }
+
+    .ui .btn-go:hover:not(:disabled) {
+      background: #a1dc64;
+    }
+
+    .ui .btn-quiet:hover:not(:disabled) {
+      background: var(--high);
+      color: var(--text);
+    }
+
+    .ui .ibtn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .ui .fld::placeholder {
+      color: var(--text-3);
+    }
+
+    .ui .fld:disabled {
+      opacity: .45;
+    }
+
+    .ui .sw input:checked~.track {
+      background: var(--ok);
+    }
+
+    .ui .sw input:checked~.knob {
+      transform: translateX(20px);
+      background: var(--on-ok);
+    }
+
+    .ui .sw input:focus-visible {
+      outline: none;
+    }
+
+    .ui .sw input:focus-visible~.track {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .ui .choice-lg {
+      padding: 0 var(--space-1);
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      color: var(--text-2);
+    }
+
+    .ui .choice-opt:hover {
+      background: var(--higher);
+    }
+
+    .ui .state-err .dot {
+      background: var(--danger);
+    }
+
+.ui {
+      --ctl: 40px;
+      --ctl-lg: 44px;
+    }
+
+    body.ui {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: var(--fs-sm);
+      line-height: 1.5;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .ui *,
+      .ui *::before,
+      .ui *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    .ui .workspace {
+      flex: 1;
+      display: flex;
+      min-height: 0;
+    }
+
+    .ui .rail {
+      width: 72px;
+      flex: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-4) 0;
+      background: var(--card);
+      border-right: 1px solid var(--line);
+    }
+
+    .ui .work {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+    }
+
+    .ui .runbar {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      height: 44px;
+      padding: 0 var(--space-3);
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+      flex: none;
+    }
+
+    .ui .toolbar-sep {
+      width: 1px;
+      height: 24px;
+      background: var(--line);
+      flex: none;
+    }
+
+    .ui .panes {
+      flex: 1;
+      display: flex;
+      min-height: 0;
+    }
+
+    .ui .pane-l {
+      width: 268px;
+      flex: none;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      background: var(--card);
+    }
+
+    .ui .pane-c {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .ui .pane-r {
+      width: 360px;
+      flex: none;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      background: var(--card);
+    }
+
+    .ui .list-head {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      height: 40px;
+      padding: 0 var(--space-3);
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+      flex: none;
+    }
+
+    .ui .list-head .btn {
+      min-height: 34px;
+      padding: 0 var(--space-2);
+    }
+
+    .ui .list-head .fld {
+      height: 34px;
+    }
+
+    .ui .vsplit,
+    .ui .hsplit {
+      flex: none;
+      border: 0;
+      padding: 0;
+      background: var(--line);
+      transition: background var(--t);
+    }
+
+    .ui .vsplit {
+      width: 6px;
+      cursor: col-resize;
+    }
+
+    .ui .hsplit {
+      height: 6px;
+      cursor: row-resize;
+    }
+
+    .ui .vsplit:hover,
+    .ui .hsplit:hover,
+    .ui .vsplit.on,
+    .ui .hsplit.on {
+      background: var(--primary);
+    }
+
+    .ui .vsplit:focus-visible,
+    .ui .hsplit:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: -3px;
+      border-radius: 0;
+    }
+
+    .ui .pop-wrap {
+      position: relative;
+      display: inline-flex;
+      flex: none;
+    }
+
+    .ui .pop {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      z-index: 40;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      max-width: calc(100vw - 96px);
+      max-height: min(70vh, 560px);
+      padding: var(--space-3);
+      border: 1px solid var(--line-2);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 18px 48px rgba(0, 0, 0, .55);
+    }
+
+    .ui .pop-right {
+      left: auto;
+      right: 0;
+    }
+
+    .ui .pop-title {
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .ui .logbar {
+      flex: none;
+      height: 200px;
+      min-height: 40px;
+      display: flex;
+      flex-direction: column;
+      background: var(--card);
+    }
+
+    .ui .loghead {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      height: 40px;
+      padding: 0 var(--space-3);
+      flex: none;
+    }
+
+    .ui .loghead .ibtn {
+      width: 30px;
+      height: 30px;
+    }
+
+    .ui .loghead .ibtn svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .ui .ibtn.is-done {
+      border-color: var(--ok);
+      color: var(--ok);
+    }
+
+    .ui .vlist>* {
+      flex: none;
+    }
+
+    .ui .steplist {
+      gap: var(--space-1);
+    }
+
+    .ui .head {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-3);
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+      flex: none;
+    }
+
+    .ui .eyebrow {
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      color: var(--text-2);
+      margin: 0;
+    }
+
+    .ui .mono {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: var(--text-2);
+    }
+
+    .ui .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      min-height: var(--ctl);
+      padding: 0 var(--space-3);
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      background: var(--high);
+      color: var(--text);
+      font: inherit;
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      cursor: pointer;
+      transition: background var(--t), color var(--t), border-color var(--t), transform var(--t);
+    }
+
+    .ui .btn svg {
+      width: 18px;
+      height: 18px;
+      flex: none;
+    }
+
+    .ui .btn-go {
+      background: var(--ok);
+      color: var(--on-ok);
+      min-height: var(--ctl-lg);
+      padding: 0 var(--space-4);
+    }
+
+    .ui .btn-stop {
+      background: var(--stop-bg);
+      color: var(--stop-fg);
+      border-color: var(--danger);
+      min-height: var(--ctl-lg);
+      padding: 0 var(--space-4);
+    }
+
+    .ui .btn-primary {
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+
+    .ui .addbar .btn {
+      min-height: 34px;
+    }
+
+    .ui .btn-quiet {
+      background: transparent;
+      border-color: var(--line-2);
+      color: var(--text-2);
+      font-weight: 600;
+    }
+
+    .ui .ibtn {
+      display: grid;
+      place-items: center;
+      width: var(--ctl);
+      height: var(--ctl);
+      flex: none;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: var(--high);
+      color: var(--text-2);
+      cursor: pointer;
+      transition: background var(--t), color var(--t), border-color var(--t);
+    }
+
+    .ui .ibtn:hover {
+      background: var(--higher);
+      color: var(--text);
+    }
+
+    .ui .ibtn-bad {
+      color: var(--danger);
+    }
+
+    .ui .ibtn.is-armed {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+
+    .ui .fld {
+      height: var(--ctl);
+      min-width: 0;
+      padding: 0 var(--space-2);
+      background: var(--bg);
+      border: 1px solid var(--line-2);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font: inherit;
+      font-size: var(--fs-xs);
+      color-scheme: dark;
+    }
+
+    .ui .fld-num {
+      width: 76px;
+      text-align: center;
+      flex: none;
+    }
+
+    .ui .field {
+      display: block;
+    }
+
+    .ui .field>.field-label,
+    .ui .field-label {
+      display: block;
+      font-size: var(--fs-xs);
+      color: var(--text-2);
+      margin-bottom: var(--space-1);
+    }
+
+    .ui .field>.fld {
+      width: 100%;
+    }
+
+    .ui .inline {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--fs-xs);
+      color: var(--text-2);
+    }
+
+    .ui .check {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      min-height: var(--ctl);
+      padding: 0 var(--space-1);
+      font-size: var(--fs-xs);
+      color: var(--text);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .ui .check input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--ok);
+      flex: none;
+      cursor: pointer;
+    }
+
+    .ui .sw {
+      position: relative;
+      width: 44px;
+      height: 24px;
+      flex: none;
+    }
+
+    .ui .sw input {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    .ui .sw .track {
+      display: block;
+      width: 44px;
+      height: 24px;
+      border-radius: var(--pill);
+      background: #4a463f;
+      transition: background var(--t);
+      pointer-events: none;
+    }
+
+    .ui .sw .knob {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #efeae4;
+      transition: transform var(--t);
+      pointer-events: none;
+    }
+
+    .ui .navbtn {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      background: transparent;
+      color: var(--text-3);
+      cursor: pointer;
+      transition: background var(--t), color var(--t);
+    }
+
+    .ui .navbtn:hover {
+      background: var(--high);
+      color: var(--text);
+    }
+
+    .ui .navbtn svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .ui .navbtn.active {
+      background: var(--high);
+      color: var(--ok);
+      border-color: var(--line);
+    }
+
+    .ui .navcap {
+      font-size: var(--fs-xs);
+      color: var(--text-3);
+      text-align: center;
+    }
+
+    .ui .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      min-height: 34px;
+      padding: 0 var(--space-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: var(--high);
+      color: var(--text-2);
+      font-size: var(--fs-xs);
+    }
+
+    .ui .warn-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      min-height: 34px;
+      flex: none;
+      white-space: nowrap;
+      padding: 0 var(--space-2);
+      border: 1px solid var(--warn);
+      border-radius: var(--radius-sm);
+      background: transparent;
+      color: var(--warn);
+      font-family: inherit;
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      cursor: pointer;
+      transition: background var(--t);
+    }
+
+    .ui .warn-chip:hover {
+      background: rgba(255, 215, 176, .12);
+    }
+
+    .ui .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--text-3);
+      flex: none;
+    }
+
+    .ui .state-run .dot {
+      background: var(--ok);
+    }
+
+    .ui .state-run {
+      color: var(--ok);
+    }
+
+    .ui .state-err {
+      color: var(--danger);
+    }
+
+    .ui .log {
+      flex: 1;
+      min-height: 0;
+      margin: 0;
+      padding: 0 var(--space-3) var(--space-2);
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      line-height: 1.6;
+      color: var(--text-2);
+      white-space: pre-wrap;
+      word-break: break-word;
+      user-select: text;
+    }
+
+    .ui .tpl {
+      display: block;
+      width: 100%;
+      padding: 0;
+      text-align: left;
+      background: var(--high);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      cursor: grab;
+      font: inherit;
+      color: inherit;
+      transition: border-color var(--t), background var(--t);
+    }
+
+    .ui .tpl:hover {
+      border-color: var(--primary);
+      background: var(--higher);
+    }
+
+    .ui .tpl-pic {
+      display: grid;
+      place-items: center;
+      height: 62px;
+      background: #0f0e0c;
+      overflow: hidden;
+    }
+
+    .ui .tpl-pic img {
+      max-height: 62px;
+      width: auto;
+    }
+
+    .ui .tpl-meta {
+      padding: var(--space-2);
+      min-width: 0;
+    }
+
+    .ui .tpl-name {
+      display: block;
+      font-size: var(--fs-xs);
+      color: var(--text);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .ui .tpl-size {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: var(--text-3);
+    }
+
+    .ui .thumb {
+      border-radius: 6px;
+      background: #0f0e0c;
+      object-fit: contain;
+      flex: none;
+    }
+
+    .ui .thumb-lg {
+      width: 64px;
+      height: 40px;
+    }
+
+    .ui .thumb-sm {
+      width: 48px;
+      height: 34px;
+    }
+
+    .ui .thumb-empty {
+      display: grid;
+      place-items: center;
+      font-size: var(--fs-xs);
+      color: var(--text-3);
+      border: 1px dashed var(--line);
+    }
+
+    .ui .step {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: var(--card);
+      cursor: grab;
+      transition: border-color var(--t), background var(--t);
+    }
+
+    .ui .step:hover {
+      border-color: var(--line-2);
+    }
+
+    .ui .step.sel {
+      border-color: var(--primary);
+      background: var(--high);
+    }
+
+    .ui .step.running {
+      border-left: 3px solid var(--primary);
+      padding-left: 5px;
+      background: rgba(254, 183, 125, .1);
+    }
+
+    .ui .step.ok {
+      box-shadow: 0 0 0 2px var(--ok) inset;
+    }
+
+    .ui .step.skip {
+      box-shadow: 0 0 0 2px var(--text-3) inset;
+    }
+
+    .ui .step.fail {
+      box-shadow: 0 0 0 2px var(--danger) inset;
+    }
+
+    .ui .step.drag-over {
+      border-top: 3px solid var(--primary);
+    }
+
+    .ui .step.off {
+      opacity: .45;
+    }
+
+    .ui .step.off .title {
+      text-decoration: line-through;
+    }
+
+    .ui .step.hit {
+      border-color: var(--ok);
+      background: rgba(143, 206, 77, .08);
+    }
+
+    .ui .step.warn {
+      border-color: var(--warn);
+    }
+
+    .ui .step.bad {
+      border-color: var(--danger);
+    }
+
+    .ui .step-no {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      flex: none;
+      border-radius: 6px;
+      background: var(--high);
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      color: var(--text-3);
+    }
+
+    .ui .step-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .ui .step .title {
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      color: var(--text);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .ui .step .title .target {
+      color: var(--primary);
+    }
+
+    .ui .step-sum {
+      font-size: var(--fs-xs);
+      color: var(--text-3);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .ui .step-sum.bad {
+      color: var(--danger);
+    }
+
+    .ui .step-warn {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-1);
+      margin-top: 2px;
+      font-size: var(--fs-xs);
+      line-height: 1.35;
+      color: var(--warn);
+    }
+
+    .ui .step-warn svg {
+      flex: none;
+      margin-top: 1px;
+    }
+
+    .ui .step-acts {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      flex: none;
+      opacity: 0;
+      transition: opacity 150ms cubic-bezier(0.2, 0, 0.2, 1);
+    }
+
+    .ui .step:hover .step-acts,
+    .ui .step.sel .step-acts,
+    .ui .step:focus-within .step-acts,
+    .ui .pick:hover .step-acts,
+    .ui .pick:focus-within .step-acts {
+      opacity: 1;
+    }
+
+    .ui .pick .step-acts {
+      opacity: .35;
+    }
+
+    .ui .step-acts button.is-armed {
+      background: var(--stop-bg);
+      color: var(--stop-fg);
+    }
+
+    .ui .step-acts button {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border: 0;
+      border-radius: 6px;
+      background: transparent;
+      color: var(--text-3);
+      cursor: pointer;
+      transition: background var(--t), color var(--t);
+    }
+
+    .ui .step-acts button:hover {
+      background: var(--higher);
+      color: var(--text);
+    }
+
+    .ui .step-acts button svg {
+      width: 16px;
+      height: 16px;
+      pointer-events: none;
+    }
+
+    .ui .step-acts .act-del:hover {
+      color: var(--danger);
+    }
+
+    .ui .step-acts .act-on {
+      color: var(--ok);
+    }
+
+    .ui .tag {
+      display: inline-block;
+      margin-left: var(--space-1);
+      padding: 1px 6px;
+      border-radius: var(--pill);
+      background: rgba(254, 183, 125, .18);
+      color: var(--primary);
+      font-size: var(--fs-xs);
+      font-weight: 700;
+    }
+
+    .ui .tag-off {
+      background: var(--high);
+      color: var(--text-3);
+    }
+
+    .ui .body-box {
+      margin-left: 26px;
+      padding-left: var(--space-3);
+      border-left: 2px solid rgba(254, 183, 125, .45);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      padding-bottom: var(--space-1);
+    }
+
+    .ui .body-box>*,
+    .ui .jump-span>* {
+      flex: none;
+    }
+
+    .ui .body-box.cond {
+      border-left-color: rgba(143, 206, 77, .5);
+    }
+
+    .ui .body-box.dim {
+      opacity: .45;
+    }
+
+    .ui .body-hint {
+      font-size: var(--fs-xs);
+      color: var(--primary);
+      padding-top: var(--space-1);
+    }
+
+    .ui .body-box.cond .body-hint {
+      color: var(--ok);
+    }
+
+    .ui .body-drop {
+      padding: var(--space-2);
+      border: 1px dashed var(--line-2);
+      border-radius: var(--radius-sm);
+      background: transparent;
+      color: var(--text-3);
+      font: inherit;
+      font-size: var(--fs-xs);
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .ui .body-drop:hover,
+    .ui .body-drop.over {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .ui .jump-card {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-3);
+      border: 1px solid var(--primary);
+      border-radius: var(--radius-sm);
+      background: rgba(254, 183, 125, .1);
+      font-size: var(--fs-xs);
+    }
+
+    .ui .jump-span {
+      border-left: 2px solid var(--primary);
+      padding-left: var(--space-2);
+    }
+
+    .ui .gchip {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: var(--high);
+      overflow: hidden;
+    }
+
+    .ui .gchip button {
+      min-height: 34px;
+      padding: 0 var(--space-2);
+      border: 0;
+      background: transparent;
+      color: var(--text-2);
+      font: inherit;
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .ui .gchip button:hover {
+      background: var(--higher);
+      color: var(--text);
+    }
+
+    .ui .gchip .on {
+      color: var(--ok);
+    }
+
+    .ui .gchip .empty {
+      color: var(--text-3);
+      font-weight: 400;
+    }
+
+    .ui .gchip .gdel:hover {
+      color: var(--danger);
+    }
+
+    .ui .choice {
+      margin: 0;
+      min-width: 0;
+      padding: var(--space-1) var(--space-2) var(--space-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: var(--high);
+    }
+
+    .ui .choice-sub {
+      display: block;
+      margin-top: var(--space-2);
+      font-size: var(--fs-xs);
+      color: var(--text-2);
+    }
+
+    .ui .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, max(200px, calc(50% - var(--space-2)))), 1fr));
+      gap: 0 var(--space-2);
+      align-content: start;
+    }
+
+    .ui .choice-opt {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      min-height: var(--ctl-lg);
+      min-width: 0;
+      padding: var(--space-1);
+      border-radius: 6px;
+    }
+
+    .ui .choice-opt input,
+    .ui .pick-cb {
+      width: 20px;
+      height: 20px;
+      flex: none;
+      accent-color: var(--ok);
+      cursor: pointer;
+    }
+
+    .ui .until-lib {
+      max-height: 46vh;
+      margin-top: var(--space-1);
+    }
+
+    .ui .picks {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+
+    .ui .pick {
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+      min-height: var(--ctl-lg);
+      padding: var(--space-1);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: var(--card);
+    }
+
+    .ui .pick-main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+      min-width: 0;
+      cursor: pointer;
+    }
+
+    .ui .pick-no {
+      flex: none;
+      width: 16px;
+      text-align: right;
+      font-size: var(--fs-xs);
+      color: var(--text-3);
+    }
+
+    .ui .pick-name {
+      flex: 1;
+      min-width: 0;
+      overflow-wrap: anywhere;
+      font-size: var(--fs-xs);
+      line-height: 1.35;
+    }
+
+    .ui .pick-name.gone {
+      color: var(--danger);
+    }
+
+    .ui .until-status {
+      margin: var(--space-1) 0 0;
+    }
+
+    .ui .tpick {
+      display: block;
+      min-width: 0;
+    }
+
+    .ui .tpick-btn {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      width: 100%;
+      min-height: var(--ctl-lg);
+      padding: var(--space-1) var(--space-2);
+      border: 1px solid var(--line-2);
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      color: var(--text);
+      font: inherit;
+      font-size: var(--fs-xs);
+      text-align: left;
+      cursor: pointer;
+      transition: background var(--t), border-color var(--t);
+    }
+
+    .ui .tpick-btn:hover {
+      background: var(--high);
+      border-color: var(--primary);
+    }
+
+    .ui .tpick-cur {
+      flex: 1;
+      min-width: 0;
+      overflow-wrap: anywhere;
+      line-height: 1.35;
+    }
+
+    .ui .tpick-cur.empty {
+      color: var(--text-3);
+    }
+
+    .ui .tpick-cur.gone {
+      color: var(--danger);
+    }
+
+    .ui .tpick-btn>svg {
+      width: 18px;
+      height: 18px;
+      flex: none;
+      color: var(--text-3);
+    }
+
+    .ui .tpick-sheet {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-4);
+      background: rgba(8, 7, 6, .74);
+      animation: tpick-fade 160ms cubic-bezier(0.2, 0, 0.2, 1);
+    }
+
+    @keyframes tpick-fade {
+      from {
+        opacity: 0;
+      }
+    }
+
+    .ui .tpick-box {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      width: min(560px, 100%);
+      max-height: min(560px, 88vh);
+      padding: var(--space-3);
+      border: 1px solid var(--line-2);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      box-shadow: 0 18px 48px rgba(0, 0, 0, .6);
+    }
+
+    .ui .tpick-head {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      flex: none;
+    }
+
+    .ui .tpick-title {
+      flex: 1;
+      min-width: 0;
+      font-size: var(--fs-sm);
+      color: var(--primary);
+    }
+
+    .ui .tpick-x {
+      width: var(--ctl-lg);
+      height: var(--ctl-lg);
+    }
+
+    .ui .tpick-q,
+    .ui .tpick-status {
+      flex: none;
+    }
+
+    .ui .tpick-q {
+      width: 100%;
+      height: var(--ctl-lg);
+    }
+
+    .ui .tpick-status {
+      margin: 0;
+    }
+
+    .ui .tpick-list {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 236px), 1fr));
+      align-content: start;
+      gap: var(--space-2);
+      padding: 2px;
+    }
+
+    .ui .tpick-opt {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      min-height: var(--ctl-lg);
+      padding: var(--space-1) var(--space-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: var(--card);
+      cursor: pointer;
+      transition: background var(--t), border-color var(--t);
+    }
+
+    .ui .tpick-opt:hover {
+      border-color: var(--line-2);
+      background: var(--high);
+    }
+
+    .ui .tpick-opt.on {
+      border-color: var(--primary);
+      background: var(--high);
+      box-shadow: 0 0 0 2px var(--primary) inset;
+    }
+
+    .ui .tpick-opt-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .ui .tpick-opt-name {
+      display: block;
+      overflow-wrap: anywhere;
+      font-size: var(--fs-xs);
+      line-height: 1.35;
+      color: var(--text);
+    }
+
+    .ui .tpick-opt-name.gone {
+      color: var(--danger);
+    }
+
+    .ui .tpick-opt-note {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: var(--text-3);
+    }
+
+    .ui .tpick-none {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--space-2);
+      padding: var(--space-4);
+      border: 1px dashed var(--line-2);
+      border-radius: var(--radius-sm);
+      text-align: center;
+    }
+
+    .ui .tpick-none-t {
+      margin: 0;
+      font-size: var(--fs-sm);
+      font-weight: 700;
+      color: var(--warn);
+      overflow-wrap: anywhere;
+    }
+
+    .ui .tpick-none p {
+      margin: 0;
+    }
+
+    .ui .goal-arrow,
+    .ui .inline-ico,
+    .ui .jump-ico,
+    .ui .gchip-ico,
+    .ui .act-fold svg {
+      width: 16px;
+      height: 16px;
+      flex: none;
+      vertical-align: -3px;
+    }
+
+    .ui .rot90 {
+      transform: rotate(90deg);
+    }
+
+    .ui .capshot {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: var(--high);
+    }
+
+    .ui .capbox {
+      flex: none;
+      padding: var(--space-2) var(--space-3) var(--space-3);
+      border-top: 1px solid var(--line);
+      background: var(--bg);
+    }
+
+    .ui .fold-btn {
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+      min-height: 30px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--text-2);
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .ui .fold-btn:hover {
+      color: var(--text);
+    }
+
+    .ui .fold-btn svg {
+      width: 16px;
+      height: 16px;
+      flex: none;
+      transition: transform var(--t);
+    }
+
+    .ui .hidden {
+      display: none;
+    }
+  </style>
+
+</head>
+
+<body class="ui">
+  <div class="app">
+
+    <header class="topbar">
+      <div class="flex items-center gap-2 min-w-0">
+        <span class="ibtn" aria-hidden="true" style="cursor:default">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="7" height="6" rx="1" />
+            <rect x="14" y="14" width="7" height="6" rx="1" />
+            <path d="M6.5 10v4a3 3 0 0 0 3 3H14" />
+          </svg>
+        </span>
+        <h1 style="margin:0;font-size:var(--fs-md);font-weight:800;color:var(--primary)">Flow Editor</h1>
+
+        <label class="sr" for="flowName">ชื่อแผน</label>
+        <input id="flowName" type="text" placeholder="ชื่อแผน" class="fld"
+          style="width:180px;font-weight:700" title="ชื่อแผน (ใช้เป็นชื่อไฟล์ตอนบันทึก)">
+        <span id="stepCount" class="mono"></span>
+
+        <button id="warnJump" type="button" class="warn-chip hidden"></button>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <span class="pop-wrap">
+          <button id="flowBtn" type="button" class="btn btn-quiet" aria-haspopup="true" aria-expanded="false"
+            title="เลือกแผน / คำอธิบายแผน">
+            <span>แผน</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div id="flowPop" class="pop pop-right" style="display:none;width:320px">
+            <b class="pop-title">แผนการเล่น</b>
+            <div class="field">
+              <label class="field-label" for="flowSelect">เปิดแผน</label>
+              <select id="flowSelect" class="fld"></select>
+            </div>
+            <div class="field">
+              <label class="field-label" for="flowDesc">คำอธิบายแผน</label>
+              <input id="flowDesc" type="text" placeholder="คำอธิบายสั้น ๆ" class="fld">
+            </div>
+          </div>
+        </span>
+        <button id="newFlow" type="button" class="ibtn" title="สร้างแผนใหม่" aria-label="สร้างแผนใหม่">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 5v14M5 12h14" />
+          </svg>
+        </button>
+        <button id="undoFlow" type="button" class="ibtn" title="กู้คืนเวอร์ชันก่อนบันทึกล่าสุด"
+          aria-label="กู้คืนเวอร์ชันก่อนบันทึกล่าสุด">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M3 7v6h6" />
+            <path d="M3.5 13a9 9 0 1 0 2-9.5L3 7" />
+          </svg>
+        </button>
+        <button id="delFlow" type="button" class="ibtn ibtn-bad" title="ลบแผนนี้" aria-label="ลบแผนนี้">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6" />
+          </svg>
+        </button>
+        <div class="toolbar-sep"></div>
+        <button id="saveFlow" type="button" class="btn btn-quiet">บันทึก</button>
+        <button id="runBtn" type="button" class="btn btn-go">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+          <span>รันจริง</span>
+        </button>
+        <button id="stopBtn" type="button" class="btn btn-stop hidden">หยุด</button>
+      </div>
+    </header>
+
+    <div class="workspace">
+
+      <nav class="rail" aria-label="สลับมุมมอง">
+        <div class="flex flex-col items-center gap-1">
+          <button type="button" class="navbtn active" title="ตัวแก้ไขแผน" aria-label="ตัวแก้ไขแผน">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="3" y="3" width="6" height="6" rx="1" />
+              <rect x="15" y="15" width="6" height="6" rx="1" />
+              <path d="M6 9v6a3 3 0 0 0 3 3h6" />
+            </svg>
+          </button>
+          <span class="navcap">แก้ไข</span>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <button id="tplToggle" type="button" class="navbtn" title="ซ่อน/แสดงคลังรูป (Alt+1)"
+            aria-label="ซ่อน/แสดงคลังรูป">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            </svg>
+          </button>
+          <span class="navcap">คลังรูป</span>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <button id="editorToggle" type="button" class="navbtn" title="ซ่อน/แสดงแผงตั้งค่า (Alt+2)"
+            aria-label="ซ่อน/แสดงแผงตั้งค่า">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M4 6h10M18 6h2M4 12h2M10 12h10M4 18h8M16 18h4" />
+              <circle cx="16" cy="6" r="2" />
+              <circle cx="8" cy="12" r="2" />
+              <circle cx="14" cy="18" r="2" />
+            </svg>
+          </button>
+          <span class="navcap">ตั้งค่า</span>
+        </div>
+      </nav>
+
+      <main class="work">
+
+        <div class="runbar">
+          <label class="sr" for="instSelect">จอที่ใช้ทดสอบ</label>
+          <select id="instSelect" class="fld" style="max-width:190px"></select>
+          <button id="instRefresh" type="button" class="ibtn" title="รีเฟรชรายชื่อจอ" aria-label="รีเฟรชรายชื่อจอ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M20 11a8 8 0 1 0-.5 4" />
+              <path d="M20 4v6h-6" />
+            </svg>
+          </button>
+
+          <div class="toolbar-sep"></div>
+
+          <label class="inline" for="loops">รอบ
+            <input id="loops" type="number" min="1" max="999" value="1" class="fld fld-num"></label>
+          <label class="check" title="วนแผนไม่รู้จบจนกว่าจะกดหยุด (ไว้เทสยาว ๆ)">
+            <input type="checkbox" id="loopEndless"><span>ไม่จบ</span></label>
+          <button id="probeBtn" type="button" class="btn btn-quiet">ตรวจจอ</button>
+
+          <span class="flex-1"></span>
+
+          <span class="pop-wrap">
+            <button id="testBtn" type="button" class="btn btn-quiet" aria-haspopup="true" aria-expanded="false"
+              title="โฟลเดอร์ LDPlayer · รีสตาร์ทจอ">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="3.2" />
+                <path d="M12 3v2.2M12 18.8V21M21 12h-2.2M5.2 12H3M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2L5.6 5.6" />
+              </svg>
+              <span>ตั้งค่าทดสอบ</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div id="testPop" class="pop pop-right" style="display:none;width:360px">
+              <b class="pop-title">ตั้งค่าการทดสอบ</b>
+              <div class="field">
+                <label class="field-label" for="ldSelect">โฟลเดอร์ LDPlayer ที่ใช้</label>
+                <div class="flex items-center gap-2">
+                  <select id="ldSelect" class="fld flex-1" title="โฟลเดอร์ LDPlayer ที่ใช้"></select>
+                  <button id="ldBrowse" type="button" class="ibtn" title="เลือกโฟลเดอร์ LDPlayer เอง"
+                    aria-label="เลือกโฟลเดอร์ LDPlayer เอง">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="hint flex-1">ปิดแล้วเปิดจอที่เลือกใหม่</span>
+                <button id="instRestart" type="button" class="ibtn ibtn-bad" title="ปิดแล้วเปิดจอนี้ใหม่ (กด 2 ครั้ง)"
+                  aria-label="ปิดแล้วเปิดจอนี้ใหม่">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M12 2v6M18.4 6.6a9 9 0 1 1-12.8 0" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </span>
+        </div>
+
+        <div class="panes">
+
+          <section id="tplPane" class="pane-l" aria-label="คลังรูป">
+            <div class="head">
+              <h2 class="eyebrow">คลังรูป</h2>
+              <span id="tplCount" class="mono"></span>
+              <span class="flex-1"></span>
+              <button id="tplRefresh" type="button" class="ibtn" title="โหลดรูปใหม่จาก templates/"
+                aria-label="โหลดรูปใหม่จากโฟลเดอร์ templates">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M20 11a8 8 0 1 0-.5 4" />
+                  <path d="M20 4v6h-6" />
+                </svg>
+              </button>
+              <button id="calBtn" type="button" class="btn btn-quiet">+ รูป</button>
+            </div>
+            <div style="padding:var(--space-2) var(--space-3);border-bottom:1px solid var(--line)">
+              <label class="sr" for="tplSearch">ค้นหาในคลังรูป</label>
+              <input id="tplSearch" type="text" placeholder="ค้นหาคลังรูป..." class="fld" style="width:100%">
+            </div>
+            <div id="tplList" class="scroll flex-1 vlist" style="padding:var(--space-2)"></div>
+            <p class="hint" style="margin:0;padding:var(--space-2) var(--space-3);border-top:1px solid var(--line)">
+              คลิกรูป = เพิ่มขั้น "แตะรูป" ต่อท้าย · ลากไปวางในลำดับก็ได้
+            </p>
+          </section>
+
+          <div id="paneLSplit" class="vsplit" role="separator" tabindex="0" aria-orientation="vertical"
+            aria-label="ปรับความกว้างคลังรูป (ลูกศรซ้าย/ขวา)"></div>
+
+          <section class="pane-c" aria-label="ลำดับขั้นตอน">
+
+            <div class="list-head">
+              <span class="pop-wrap">
+                <button id="addBtn" type="button" class="btn btn-primary" aria-haspopup="true" aria-expanded="false"
+                  title="เพิ่มขั้นตอนต่อจากขั้นที่เลือกอยู่">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M12 5v14M5 12h14" />
+                  </svg>
+                  <span>เพิ่มขั้นตอน</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <div id="addPop" class="pop" style="display:none;width:min(520px, calc(100vw - 160px))">
+                  <b class="pop-title">เพิ่มขั้นตอนต่อจากขั้นที่เลือกอยู่</b>
+                  <div id="addBtns" class="addbar flex items-center flex-wrap gap-2 scroll" style="max-height:280px">
+                  </div>
+                  <p class="hint" style="margin:0">ลากรูปจากคลังทางซ้ายมาวางในลิสต์ก็เพิ่มขั้น "แตะรูป" ได้เหมือนกัน</p>
+                </div>
+              </span>
+
+              <span class="pop-wrap">
+                <button id="groupBtn" type="button" class="btn btn-quiet" aria-haspopup="true" aria-expanded="false"
+                  title="สวิตช์ที่ผู้ใช้จะเห็นในหน้าโปรแกรม">
+                  <span>กลุ่ม</span>
+                  <span id="groupNum" class="mono"></span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <div id="groupPop" class="pop" style="display:none;width:min(460px, calc(100vw - 160px))">
+                  <b class="pop-title">สวิตช์ที่ผู้ใช้จะเห็นในหน้าโปรแกรม</b>
+                  <div id="groupBar" class="flex items-start flex-wrap gap-2 scroll" style="max-height:260px"></div>
+                </div>
+              </span>
+
+              <span class="pop-wrap">
+                <button id="spamBtn" type="button" class="btn btn-quiet" aria-haspopup="true" aria-expanded="false"
+                  title="บล็อกกระโดดรัว (ตั้งครั้งเดียวต่อแผน)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M4 18l5-9 4 5 3-4 4 8z" />
+                  </svg>
+                  <span>กระโดดรัว</span>
+                  <span id="spamNum" class="mono"></span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <div id="spamPop" class="pop" style="display:none;width:min(660px, calc(100vw - 160px))">
+                  <b class="pop-title">บล็อกกระโดดรัว</b>
+                  <div id="spamBar">
+
+                    <div id="spamNone" class="flex items-center gap-3" style="display:none">
+                      <span class="hint" style="flex:1;min-width:0">แผนนี้ไม่ใช้กระโดดรัว</span>
+                      <button id="spamAdd" type="button" class="btn btn-quiet">ตั้งกระโดดรัว</button>
+                    </div>
+                    <div id="spamHead" class="flex items-center gap-3">
+                      <label class="check" title="สวิตช์เดียวกับที่โผล่ในหน้าผู้ใช้">
+                        <span class="sw"><input type="checkbox" id="jumpOn"><span class="track"></span><span
+                            class="knob"></span></span>
+                        <b style="font-size:var(--fs-xs)">กระโดดรัว</b>
+                      </label>
+                      <span id="spamInfo" class="hint" style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></span>
+                      <button id="spamToggle" type="button" class="btn btn-quiet" title="ซ่อน/แสดงตัวเลือกกระโดด">
+                        <span>ตัวเลือก</span>
+                        <svg id="spamChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                          aria-hidden="true" style="transition:transform var(--t)">
+                          <path d="M6 9l6 6 6-6" />
+                        </svg>
+                      </button>
+                    </div>
+
+                    <div id="spamDetails" class="flex items-center flex-wrap gap-3" style="margin-top:var(--space-2)">
+
+                      <div class="inline">แตะที่<div id="spamTargetPick" style="width:186px"></div></div>
+                      <label class="inline" for="spamEvery">ทุก
+                        <input id="spamEvery" type="number" min="0.05" max="3" step="0.05" value="0.25"
+                          class="fld fld-num">วิ</label>
+                      <label class="inline" for="jumpMaxTaps"
+                        title="นับการแตะล้วน ๆ (สองชั้นแตะสองครั้ง สไลด์ไม่นับ) · ครบแล้วเงียบทั้งก้อนจนจบรอบ · นับใหม่ทุกรอบ">หยุดเมื่อครบ
+                        <input id="jumpMaxTaps" type="number" min="0" max="999" step="5" value="0"
+                          class="fld fld-num">ครั้ง (0 = ไม่จำกัด)</label>
+                      <label class="inline" for="spamFrom">แทรกหลังขั้น
+                        <select id="spamFrom" class="fld" style="max-width:150px"></select></label>
+                      <label class="inline" for="spamTo">ถึงจบขั้น
+                        <select id="spamTo" class="fld" style="max-width:150px"></select></label>
+                      <button id="spamClear" type="button" class="btn btn-quiet">ไม่กระโดด</button>
+                      <span class="hint" style="flex-basis:100%;height:0"></span>
+                      <span class="hint">สุ่ม:</span>
+                      <label class="inline" for="jumpJitter" title="ยืด/หดจังหวะกระโดดแบบสุ่ม">จังหวะ ±
+                        <input id="jumpJitter" type="number" min="0" max="90" step="5" value="35"
+                          class="fld fld-num">%</label>
+                      <label class="inline" for="jumpDouble" title="โอกาสแตะซ้ำกลางอากาศ = กระโดดสองชั้น">สองชั้น
+                        <input id="jumpDouble" type="number" min="0" max="100" step="5" value="25"
+                          class="fld fld-num">%</label>
+                      <label class="inline" for="jumpSlide" title="โอกาสปัดลง (สไลด์) แทนการกระโดด">สไลด์
+                        <input id="jumpSlide" type="number" min="0" max="100" step="5" value="15"
+                          class="fld fld-num">%</label>
+                      <label class="inline" for="jumpSlideMs">ค้าง
+                        <input id="jumpSlideMs" type="number" min="60" max="2000" step="20" value="320"
+                          class="fld fld-num">ms</label>
+                    </div>
+                  </div>
+                </div>
+              </span>
+
+              <label class="sr" for="stepSearch">ค้นหาขั้นตอนในลิสต์</label>
+              <input id="stepSearch" type="text" class="fld"
+                style="flex:1 1 90px;min-width:0;max-width:220px;margin-left:auto"
+                placeholder="ค้นหาขั้นตอน... (Enter = ตัวถัดไป)">
+              <span id="stepFound" class="hint" style="white-space:nowrap"></span>
+            </div>
+
+            <div id="steps" class="scroll flex-1 vlist steplist" style="padding:var(--space-2) var(--space-3)"></div>
+          </section>
+
+          <div id="paneRSplit" class="vsplit" role="separator" tabindex="0" aria-orientation="vertical"
+            aria-label="ปรับความกว้างแผงตั้งค่า (ลูกศรซ้าย/ขวา)"></div>
+
+          <aside id="editorPane" class="pane-r" aria-label="ตั้งค่าขั้นตอน">
+            <div class="head">
+              <h2 class="eyebrow" style="color:var(--primary)">ตั้งค่าขั้นตอน</h2>
+            </div>
+            <div id="editor" class="scroll flex-1 vlist" style="padding:var(--space-3)"></div>
+            <div class="capbox">
+              <div class="flex items-center gap-2" style="margin-bottom:var(--space-2)">
+                <button id="capFold" type="button" class="fold-btn" aria-expanded="true" aria-controls="capBody">
+                  <svg id="capChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                  <span id="capTitle" class="eyebrow">ภาพจอตอนนี้</span>
+                </button>
+                <span class="flex-1"></span>
+                <button id="capBtn" type="button" class="ibtn" title="จับภาพจอตอนนี้" aria-label="จับภาพจอตอนนี้">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M3 8h4l2-2h6l2 2h4v11H3z" />
+                    <circle cx="12" cy="13" r="3.5" />
+                  </svg>
+                </button>
+              </div>
+              <div id="capBody">
+                <div id="capNote" class="hint hidden" style="margin-bottom:var(--space-2);color:var(--danger)"></div>
+                <div id="capWrap">
+                  <img id="capImg" class="capshot hidden" alt="ภาพหน้าจอจำลองล่าสุด">
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <div id="logSplit" class="hsplit" role="separator" tabindex="0" aria-orientation="horizontal"
+          aria-label="ปรับความสูงบันทึกการทำงาน (ลูกศรขึ้น/ลง)"></div>
+        <footer id="logBar" class="logbar">
+          <div class="loghead">
+            <span class="dot"></span>
+            <h2 class="eyebrow flex-1">บันทึกการทำงาน</h2>
+            <button id="logMode" type="button" class="ibtn" title="ย่อ/ขยายช่องบันทึก"
+              aria-label="ย่อ/ขยายช่องบันทึก">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path id="logModePath" d="M6 15l6-6 6 6" />
+              </svg>
+            </button>
+            <button id="copyLog" type="button" class="ibtn" title="คัดลอกทั้งหมด" aria-label="คัดลอกบันทึกทั้งหมด">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="9" y="9" width="11" height="11" rx="2" />
+                <path d="M5 15V6a2 2 0 0 1 2-2h8" />
+              </svg>
+            </button>
+            <button id="clearLog" type="button" class="ibtn" title="ล้างบันทึก" aria-label="ล้างบันทึก">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <pre id="log" class="log scroll" role="log" aria-live="polite"></pre>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <template id="icons">
+    <svg data-i="caret" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M9 6l6 6-6 6" />
+    </svg>
+    <svg data-i="on" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <circle cx="12" cy="12" r="8" />
+      <circle cx="12" cy="12" r="3.5" fill="currentColor" stroke="none" />
+    </svg>
+    <svg data-i="off" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <circle cx="12" cy="12" r="8" />
+    </svg>
+    <svg data-i="up" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+    <svg data-i="down" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M12 5v14M19 12l-7 7-7-7" />
+    </svg>
+    <svg data-i="dup" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <rect x="9" y="9" width="11" height="11" rx="2" />
+      <path d="M5 15V6a2 2 0 0 1 2-2h8" />
+    </svg>
+    <svg data-i="del" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M18 6L6 18M6 6l12 12" />
+    </svg>
+    <svg data-i="arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
+    <svg data-i="jump" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M4 18l5-9 4 5 3-4 4 8z" />
+    </svg>
+    <svg data-i="plus" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M12 5v14M5 12h14" />
+    </svg>
+    <svg data-i="loop" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M4 9a5 5 0 0 1 5-5h11M20 15a5 5 0 0 1-5 5H4" />
+      <path d="M17 1l3 3-3 3M7 17l-3 3 3 3" />
+    </svg>
+    <svg data-i="check" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M20 6L9 17l-5-5" />
+    </svg>
+    <svg data-i="find" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <circle cx="11" cy="11" r="7" />
+      <path d="M20 20l-4.4-4.4" />
+    </svg>
+    <svg data-i="alert" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M12 4L2.5 20h19z" stroke-linejoin="round" />
+      <path d="M12 10v4M12 17.2v.1" stroke-linecap="round" />
+    </svg>
+  </template>
+
+  <script>
+
+    const $ = id => document.getElementById(id);
+    const api = () => window.pywebview.api;
+
+    function el(tag, opts = {}, kids = []) {
+      const n = document.createElement(tag);
+      if (opts.class) n.className = opts.class;
+      if (opts.text != null) n.textContent = String(opts.text);
+      if (opts.attrs) for (const [k, v] of Object.entries(opts.attrs)) n.setAttribute(k, String(v));
+      if (opts.on) for (const [k, v] of Object.entries(opts.on)) n.addEventListener(k, v);
+      for (const k of [].concat(kids)) if (k) n.append(k);
+      return n;
+    }
+    function ico(name, cls) {
+      const src = $("icons").content.querySelector(`[data-i="${name}"]`);
+      if (!src) return null;
+      const n = src.cloneNode(true);
+      n.removeAttribute("data-i");
+      if (cls) n.setAttribute("class", cls);
+      return n;
+    }
+    function clear(node) { while (node.firstChild) node.removeChild(node.firstChild); }
+    function fillSelect(sel, items, value) {
+      clear(sel);
+      items.forEach(it => sel.append(el("option", { text: it.label, attrs: { value: it.value } })));
+      if (value != null) sel.value = String(value);
+    }
+
+    let META = { actions: {}, base: { w: 1600, h: 900 } };
+    let TPL = [];
+    let TPLMAP = {};
+    let flow = { name: "", description: "", steps: [], group_defs: [], jump: null };
+    let sel = null;
+    let NESTED = ["repeat_until"];
+    let instances = [];
+    let running = false;
+
+    const AUTO_FOLD_AT = 1120;
+    const paneWish = { tplPane: null, editorPane: null };
+    const PANE_MIN = 200, PANE_MAX = 560;
+    const LOG_MIN = 40;
+    const LOG_NORMAL = 200;
+    const LOG_WORD = { fold: "พับ", normal: "ปกติ", big: "ใหญ่", custom: "ปรับเอง" };
+    let UIP = { paneL: 268, paneR: 360, logH: LOG_NORMAL, logMode: "normal", frameW: 0, frameH: 0 };
+    let prefsTimer = null;
+
+    function setPane(id, show) {
+      const e = $(id);
+      e.classList.toggle("hidden", !show);
+      e.style.display = show ? "" : "none";
+      $(id === "tplPane" ? "paneLSplit" : "paneRSplit").style.display = show ? "" : "none";
+      const btn = $(id === "tplPane" ? "tplToggle" : "editorToggle");
+      btn.classList.toggle("active", show);
+    }
+    function togglePane(id) {
+      paneWish[id] = $(id).classList.contains("hidden");
+      setPane(id, paneWish[id]);
+    }
+    let spamWish = null;
+    function setSpam(show) {
+      $("spamDetails").style.display = show ? "" : "none";
+      $("spamChevron").style.transform = show ? "" : "rotate(-90deg)";
+    }
+
+    function workH() {
+      const w = document.querySelector(".work");
+      const h = w ? w.clientHeight : 0;
+      return h > 100 ? h : Math.max(300, window.innerHeight - 100);
+    }
+    function logCap() { return Math.max(LOG_MIN, Math.round(workH() * 0.6)); }
+    function logFor(mode) {
+      if (mode === "fold") return LOG_MIN;
+      if (mode === "big") return Math.min(logCap(), Math.round(workH() * 0.45));
+      if (mode === "custom") return UIP.logH;
+      return LOG_NORMAL;
+    }
+    function nextLogMode() {
+      return UIP.logMode === "normal" ? "big" : UIP.logMode === "big" ? "fold" : "normal";
+    }
+    function setLogMode(mode, height) {
+      UIP.logMode = mode;
+      UIP.logH = Math.max(LOG_MIN, Math.min(logCap(),
+        Math.round(height == null ? logFor(mode) : height)));
+      $("logBar").style.height = UIP.logH + "px";
+      $("logSplit").setAttribute("aria-valuenow", String(UIP.logH));
+      const nx = nextLogMode();
+      $("logModePath").setAttribute("d", nx === "fold" ? "M6 9l6 6 6-6" : "M6 15l6-6 6 6");
+      const why = `ช่องบันทึก: ${LOG_WORD[mode] || mode} · กดเพื่อเปลี่ยนเป็น ${LOG_WORD[nx]}`;
+      $("logMode").setAttribute("title", why);
+      $("logMode").setAttribute("aria-label", why);
+      savePrefsSoon();
+    }
+    function setPaneWidth(side, px) {
+      const id = side === "L" ? "tplPane" : "editorPane";
+      const v = Math.max(PANE_MIN, Math.min(PANE_MAX, Math.round(px)));
+      UIP[side === "L" ? "paneL" : "paneR"] = v;
+      $(id).style.width = v + "px";
+      $(side === "L" ? "paneLSplit" : "paneRSplit").setAttribute("aria-valuenow", String(v));
+    }
+    function applyLayout() {
+      setPaneWidth("L", UIP.paneL);
+      setPaneWidth("R", UIP.paneR);
+      setLogMode(UIP.logMode, UIP.logMode === "custom" ? UIP.logH : null);
+    }
+    function autoFold() {
+      const narrow = window.innerWidth < AUTO_FOLD_AT;
+      setPane("tplPane", paneWish.tplPane !== null ? paneWish.tplPane : !narrow);
+      setPane("editorPane", paneWish.editorPane !== null ? paneWish.editorPane : true);
+      setSpam(spamWish !== null ? spamWish : true);
+      setLogMode(UIP.logMode, UIP.logMode === "custom" ? UIP.logH : null);
+    }
+
+    function wireSplit(id, apply, step) {
+      const bar = $(id);
+      let live = false;
+      bar.addEventListener("pointerdown", e => {
+        if (e.button) return;
+        live = true;
+        bar.setPointerCapture(e.pointerId);
+        bar.classList.add("on");
+        document.body.style.userSelect = "none";
+        e.preventDefault();
+      });
+      bar.addEventListener("pointermove", e => { if (live) apply(e); });
+      const stop = () => {
+        if (!live) return;
+        live = false;
+        bar.classList.remove("on");
+        document.body.style.userSelect = "";
+        savePrefsSoon();
+      };
+      bar.addEventListener("pointerup", stop);
+      bar.addEventListener("pointercancel", stop);
+      bar.addEventListener("lostpointercapture", stop);
+      bar.addEventListener("keydown", e => {
+        const d = { ArrowLeft: -16, ArrowUp: -16, ArrowRight: 16, ArrowDown: 16 }[e.key];
+        if (d === undefined) return;
+        e.preventDefault();
+        step(d);
+        savePrefsSoon();
+      });
+    }
+
+    async function loadPrefs() {
+      let p = null;
+      try { p = await api().get_ui_prefs(); } catch (e) { p = null; }
+      p = p || {};
+      UIP.paneL = +p.paneL || UIP.paneL;
+      UIP.paneR = +p.paneR || UIP.paneR;
+      UIP.logH = +p.logH || UIP.logH;
+      if (LOG_WORD[p.logMode]) UIP.logMode = String(p.logMode);
+      UIP.frameW = Math.max(0, (+p.open_w || 0) - window.innerWidth);
+      UIP.frameH = Math.max(0, (+p.open_h || 0) - window.innerHeight);
+    }
+    function savePrefsSoon() {
+      clearTimeout(prefsTimer);
+      prefsTimer = setTimeout(() => {
+        UIP.winW = window.innerWidth;
+        UIP.winH = window.innerHeight;
+        try { api().set_ui_prefs(UIP); } catch (e) {  }
+      }, 400);
+    }
+
+    const POPS = {
+      flowBtn: "flowPop", testBtn: "testPop",
+      addBtn: "addPop", groupBtn: "groupPop", spamBtn: "spamPop",
+    };
+    let popOpen = null;
+
+    function setPop(btnId, show) {
+      const pop = $(POPS[btnId]);
+      pop.style.display = show ? "" : "none";
+      $(btnId).setAttribute("aria-expanded", show ? "true" : "false");
+      if (show) {
+        popOpen = btnId;
+        pop.style.left = "";
+        if (!pop.classList.contains("pop-right")) {
+          const over = pop.getBoundingClientRect().right - (window.innerWidth - 8);
+          if (over > 0) pop.style.left = -Math.round(over) + "px";
+        }
+        const first = [...pop.querySelectorAll("input, select, button")]
+          .find(n => n.offsetParent !== null);
+        if (first) first.focus();
+      } else if (popOpen === btnId) popOpen = null;
+    }
+    function togglePop(btnId) {
+      const want = popOpen !== btnId;
+      if (popOpen && popOpen !== btnId) setPop(popOpen, false);
+      setPop(btnId, want);
+      if (!want) $(btnId).focus();
+    }
+    function closePop(back) {
+      if (!popOpen) return;
+      const id = popOpen;
+      setPop(id, false);
+      if (back) $(id).focus();
+    }
+
+    window.pushLog = (msg) => {
+      const e = $("log");
+      const atEnd = e.scrollHeight - e.scrollTop - e.clientHeight < 40;
+      e.append((e.textContent ? "\n" : "") + msg);
+      if (atEnd) e.scrollTop = e.scrollHeight;
+    };
+    function flashBtn(e, msg) {
+      clearTimeout(e._t);
+      if (e.querySelector("svg")) {
+        const back = e.dataset.title0 || e.getAttribute("title") || "";
+        e.dataset.title0 = back;
+        e.setAttribute("title", msg);
+        e.classList.add("is-done");
+        e._t = setTimeout(() => {
+          e.classList.remove("is-done");
+          e.setAttribute("title", back);
+        }, 1400);
+        return;
+      }
+      const orig = e.dataset.orig || e.textContent;
+      e.dataset.orig = orig;
+      e.textContent = msg;
+      e._t = setTimeout(() => { e.textContent = orig; }, 1400);
+    }
+    function copyText(text, done, fail) {
+      const fallback = () => {
+        const ta = document.createElement("textarea");
+        ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+        document.body.appendChild(ta); ta.focus(); ta.select();
+        try { document.execCommand("copy"); done(); } catch (e) { fail(); }
+        document.body.removeChild(ta);
+      };
+      if (navigator.clipboard && window.isSecureContext)
+        navigator.clipboard.writeText(text).then(done).catch(fallback);
+      else fallback();
+    }
+
+    const runOpen = new Set();
+
+    window.pushRunState = (on) => {
+      running = !!on;
+      $("runBtn").classList.toggle("hidden", running);
+      $("stopBtn").classList.toggle("hidden", !running);
+      if (running) return;
+      runOpen.forEach(p => { if (collapsedSteps.has(p)) showBody(p, false); });
+      runOpen.clear();
+      setTimeout(() => document.querySelectorAll(".step").forEach(clearState), 1500);
+    };
+    function clearState(e) { e.classList.remove("running", "ok", "skip", "fail"); }
+    function setCap(show) {
+      $("capBody").style.display = show ? "" : "none";
+      $("capFold").setAttribute("aria-expanded", show ? "true" : "false");
+      $("capChevron").style.transform = show ? "" : "rotate(-90deg)";
+    }
+    window.pushFail = (info) => {
+      setCap(true);
+      const title = $("capTitle");
+      title.textContent = `หยุดที่ขั้นที่ ${info.no}`;
+      title.style.color = "var(--danger)";
+      const note = $("capNote");
+      clear(note);
+      note.classList.remove("hidden");
+      note.append(el("div", { text: info.label || "" }));
+      if (info.note) note.append(el("div", { class: "hint", text: info.note }));
+      if (info.file) note.append(el("div", { class: "hint", text: info.file }));
+      if (info.img) { $("capImg").src = info.img; $("capImg").classList.remove("hidden"); }
+      const e = document.querySelector(`.step[data-path="${info.path}"]`);
+      if (e) e.scrollIntoView({ block: "center", behavior: "smooth" });
+    };
+    window.pushStep = (path, status) => {
+      const parent = String(path).split(".")[0];
+      if (String(path).includes(".") && collapsedSteps.has(parent) && !runOpen.has(parent)) {
+        runOpen.add(parent);
+        showBody(parent, true);
+      }
+      const e = document.querySelector(`.step[data-path="${path}"]`);
+      if (!e) return;
+      clearState(e);
+      e.classList.add(status);
+      if (status === "running") e.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    };
+
+    function thumbEl(name, size, alt) {
+      const label = alt === undefined ? (name || "") : alt;
+      const t = TPLMAP[name];
+      if (t && t.thumb) {
+        const img = el("img", { class: "thumb " + size, attrs: { alt: label } });
+        img.src = t.thumb;
+        return img;
+      }
+      return el("span", {
+        class: "thumb thumb-empty " + size, text: "ไม่มีรูป",
+        attrs: label ? {} : { "aria-hidden": "true" },
+      });
+    }
+    async function loadTemplates(quiet) {
+      const before = TPL.length;
+      const sig = TPL.map(t => t.name).join("\n");
+      try { TPL = await api().list_templates(); }
+      catch (e) { return; }
+      TPLMAP = Object.fromEntries(TPL.map(t => [t.name, t]));
+      renderTemplates();
+      if (flow.steps.length && sig !== TPL.map(t => t.name).join("\n")) {
+        renderSteps(); renderEditor();
+      }
+      if (!quiet || TPL.length !== before)
+        pushLog(`คลังรูป: ${TPL.length} รูป` + (before && TPL.length !== before
+          ? ` (${TPL.length > before ? "+" : ""}${TPL.length - before})` : ""));
+    }
+    function renderTemplates() {
+      const typed = $("tplSearch").value.trim();
+      let list = tplMatch(TPL, typed);
+      const near = !list.length && !!typed;
+      if (near) list = tplNear(TPL, typed);
+      $("tplCount").textContent = `${list.length}/${TPL.length}`;
+      const box = $("tplList");
+      clear(box);
+      if (near && list.length) {
+        box.append(el("p", {
+          class: "hint hint-warn",
+          text: `ไม่เจอ "${typed}" ตรง ๆ · นี่คือชื่อที่ใกล้เคียงที่สุด`,
+        }));
+      }
+      if (!list.length) {
+        box.append(el("p", { class: "hint", text: TPL.length ? "ไม่เจอรูปที่ค้นหา" : "ยังไม่มีรูปในคลัง" }));
+        return;
+      }
+      list.forEach(t => {
+        const card = el("button", {
+          class: "tpl",
+          attrs: { type: "button", draggable: "true", "data-name": t.name, title: `${t.name} (${t.w}x${t.h})` },
+          on: {
+            click: () => addStep("tap", t.name),
+            dragstart: e => e.dataTransfer.setData("text/tpl", t.name),
+          },
+        }, [
+          el("span", { class: "tpl-pic" }, [thumbEl(t.name, "")]),
+          el("span", { class: "tpl-meta" }, [
+            el("span", { class: "tpl-name", text: t.name }),
+            el("span", { class: "tpl-size", text: t.w ? `${t.w}x${t.h}` : "จุดแตะ" }),
+          ]),
+        ]);
+        box.append(card);
+      });
+    }
+
+    function tplKey(s) {
+      return String(s == null ? "" : s).toLowerCase().replace(/[\s_\-.]+/g, "");
+    }
+    function tplMatch(items, query) {
+      const q = tplKey(query);
+      if (!q) return items.slice();
+      const words = String(query).trim().split(/[\s_\-.]+/).map(tplKey).filter(Boolean);
+      const hits = [];
+      items.forEach(it => {
+        const key = tplKey(it.name) + " " + tplKey(it.label || "");
+        const at = key.indexOf(q);
+        const every = words.length > 1 && words.every(w => key.includes(w));
+        if (at >= 0 || every) hits.push({ it, rank: at < 0 ? 9999 : at });
+      });
+      return hits.sort((a, b) => a.rank - b.rank).map(h => h.it);
+    }
+    function tplNear(items, query) {
+      const q = tplKey(query);
+      if (q.length < 3) return [];
+      const cuts = [];
+      for (let i = 0; i < q.length; i++) cuts.push(q.slice(0, i) + q.slice(i + 1));
+      return items.filter(it => {
+        const key = tplKey(it.name) + tplKey(it.label || "");
+        return cuts.some(c => key.includes(c));
+      });
+    }
+    function tplItems(current) {
+      const out = [];
+      if (current && !TPLMAP[current])
+        out.push({ name: current, note: "ยังไม่มีในคลัง" });
+      TPL.forEach(t => out.push({ name: t.name, note: t.w ? `${t.w}x${t.h}` : "จุดแตะ" }));
+      return out;
+    }
+
+    let tpickSeq = 0;
+    function tplPicker(opts) {
+      const id = "tpick" + (++tpickSeq);
+      let value = opts.value || "";
+      const emptyText = opts.emptyText || "เลือกรูป...";
+      let rows = [];
+      let shown = [];
+      let active = -1;
+
+      const thumbBox = el("span", { class: "tpick-thumb" });
+      const cur = el("span", { class: "tpick-cur" });
+      const btn = el("button", {
+        class: "tpick-btn",
+        attrs: { type: "button", "aria-haspopup": "dialog", "aria-expanded": "false" },
+      }, [thumbBox, cur, ico("find")]);
+
+      const q = el("input", {
+        class: "fld tpick-q",
+        attrs: {
+          type: "text", id: id + "-q", role: "combobox", "aria-expanded": "true",
+          "aria-controls": id + "-list", "aria-autocomplete": "list",
+          "aria-label": "ค้นหาชื่อรูป", autocomplete: "off", spellcheck: "false",
+          placeholder: "พิมพ์บางส่วนของชื่อ เช่น coin",
+        },
+      });
+      const closeBtn = el("button", {
+        class: "ibtn tpick-x",
+        attrs: { type: "button", title: "ปิด (Esc)", "aria-label": "ปิดตัวเลือกรูป" },
+      }, [ico("del")]);
+      const status = el("p", { class: "hint tpick-status", attrs: { role: "status" } });
+      const list = el("div", {
+        class: "tpick-list scroll",
+        attrs: { id: id + "-list", role: "listbox", "aria-label": opts.title || "รายการรูป" },
+      });
+      const noneTitle = el("p", { class: "tpick-none-t" });
+      const none = el("div", { class: "tpick-none hidden" }, [
+        noneTitle,
+        el("p", { class: "hint", text: "ลองพิมพ์แค่บางส่วน เช่น coin · ok · box · mail" }),
+        el("p", { class: "hint", text: "ไม่ต้องใส่ _ และพิมพ์เล็กใหญ่ยังไงก็ได้" }),
+      ]);
+      const sheet = el("div", { class: "tpick-sheet hidden" }, [
+        el("div", {
+          class: "tpick-box",
+          attrs: { role: "dialog", "aria-modal": "true", "aria-label": opts.title || "เลือกรูป" },
+        }, [
+          el("div", { class: "tpick-head" }, [
+            el("b", { class: "tpick-title", text: opts.title || "เลือกรูป" }), closeBtn,
+          ]),
+          q, status, list, none,
+        ]),
+      ]);
+      const root = el("div", { class: "tpick" }, [btn, sheet]);
+
+      function paint() {
+        const gone = !!value && !TPLMAP[value];
+        const note = gone ? " (ไม่มีในคลัง)" : (opts.noteOf ? opts.noteOf(value) : "");
+        clear(thumbBox);
+        thumbBox.append(thumbEl(value, "thumb-sm", ""));
+        cur.className = "tpick-cur" + (gone ? " gone" : (value ? "" : " empty"));
+        cur.textContent = value ? value + note : emptyText;
+        btn.setAttribute("aria-label", (opts.title || "เลือกรูป") + ": " + cur.textContent);
+      }
+
+      function setActive(i, scroll) {
+        if (!rows.length) {
+          active = -1;
+          q.removeAttribute("aria-activedescendant");
+          return;
+        }
+        active = (i + rows.length) % rows.length;
+        rows.forEach((r, n) => {
+          r.classList.toggle("on", n === active);
+          r.setAttribute("aria-selected", String(n === active));
+        });
+        q.setAttribute("aria-activedescendant", rows[active].getAttribute("id"));
+        if (scroll && rows[active].scrollIntoView) rows[active].scrollIntoView({ block: "nearest" });
+      }
+
+      function optRow(it, i) {
+        const gone = !!it.name && !TPLMAP[it.name];
+        return el("div", {
+          class: "tpick-opt",
+          attrs: { role: "option", id: id + "-o" + i, "aria-selected": "false" },
+          on: { click: () => choose(it.name), mousemove: () => setActive(i, false) },
+        }, [
+          it.name ? thumbEl(it.name, "thumb-sm", "") : null,
+          el("span", { class: "tpick-opt-main" }, [
+            el("span", {
+              class: "tpick-opt-name" + (gone ? " gone" : ""),
+              text: it.label || it.name,
+            }),
+            it.note ? el("span", { class: "tpick-opt-note", text: it.note }) : null,
+          ]),
+        ]);
+      }
+
+      function refresh() {
+        const all = [];
+        if (opts.clearText) all.push({ name: "", label: opts.clearText });
+        (opts.items ? opts.items() : []).forEach(it => all.push(it));
+        const typed = q.value.trim();
+        shown = tplMatch(all, q.value);
+        let near = false;
+        if (!shown.length && typed) {
+          shown = tplNear(all, typed);
+          near = shown.length > 0;
+        }
+        rows = shown.map(optRow);
+        clear(list);
+        rows.forEach(r => list.append(r));
+
+        const total = all.filter(it => it.name).length;
+        const found = shown.filter(it => it.name).length;
+        list.classList.toggle("hidden", !rows.length);
+        none.classList.toggle("hidden", !!rows.length);
+        noneTitle.textContent = `ไม่เจอรูปที่มีคำว่า "${typed}"`;
+        status.className = "hint tpick-status" + (rows.length ? "" : " hint-warn");
+        status.textContent = !rows.length
+          ? `ไม่เจอ · 0 จาก ${total} รูป`
+          : near ? `ไม่เจอ "${typed}" ตรง ๆ · นี่คือ ${found} ชื่อที่ใกล้เคียงที่สุด`
+            : typed ? `เจอ ${found} รูป จากทั้งหมด ${total} รูป`
+              : `${total} รูปในคลัง · พิมพ์เพื่อกรอง · ลูกศรขึ้นลงแล้ว Enter เพื่อเลือก`;
+        setActive(0, false);
+      }
+
+      function choose(name) {
+        value = name;
+        paint();
+        close();
+        opts.onPick(name);
+      }
+
+      function open() {
+        q.value = "";
+        sheet.classList.remove("hidden");
+        btn.setAttribute("aria-expanded", "true");
+        refresh();
+        q.focus();
+      }
+      function close() {
+        sheet.classList.add("hidden");
+        btn.setAttribute("aria-expanded", "false");
+        btn.focus();
+      }
+
+      btn.addEventListener("click", open);
+      closeBtn.addEventListener("click", close);
+      sheet.addEventListener("mousedown", e => { if (e.target === sheet) close(); });
+      q.addEventListener("input", refresh);
+      q.addEventListener("keydown", e => {
+        if (e.key === "ArrowDown") { e.preventDefault(); setActive(active + 1, true); }
+        else if (e.key === "ArrowUp") { e.preventDefault(); setActive(active - 1, true); }
+        else if (e.key === "Home") { e.preventDefault(); setActive(0, true); }
+        else if (e.key === "End") { e.preventDefault(); setActive(rows.length - 1, true); }
+        else if (e.key === "Enter") { e.preventDefault(); if (shown[active]) choose(shown[active].name); }
+        else if (e.key === "Escape") { e.preventDefault(); e.stopPropagation(); close(); }
+        else if (e.key === "Tab") { e.preventDefault(); closeBtn.focus(); }
+      });
+      closeBtn.addEventListener("keydown", e => {
+        if (e.key === "Escape") { e.preventDefault(); e.stopPropagation(); close(); }
+        else if (e.key === "Tab") { e.preventDefault(); q.focus(); }
+      });
+
+      paint();
+      return {
+        el: root,
+        setValue(v) { value = v || ""; paint(); },
+        focus() { btn.focus(); },
+        open, close,
+      };
+    }
+
+    const DEFAULTS = {
+      action: "tap", target: "", until: "", seconds: 1, timeout: 8,
+      after: 1, optional: true, x: 0, y: 0, max_tries: 30, poll: 0.5,
+      dx: 0, dy: 0, swipe_ms: 300, streak: 1,
+      text: "", submit: false,
+      note: "", group: "", enabled: true
+    };
+    const JUMP_DEFAULTS = {
+      enabled: true, target: "", every: 0.25, jitter: 0.35, double: 0.25,
+      slide: 0.15, slide_ms: 320, slide_target: "", max_taps: 0, start: -1, end: -1
+    };
+
+    function addStep(action, target) { insertStep(newStep(action, target)); }
+    function insertStep(s) {
+      if (sel != null && stepAt(sel)) {
+        const { arr, i } = listAt(sel);
+        if (isNested(s) && arr !== flow.steps) {
+          flow.steps.push(s); sel = String(flow.steps.length - 1);
+        } else {
+          arr.splice(i + 1, 0, s);
+          sel = pathFor(arr, i + 1);
+        }
+      } else {
+        flow.steps.push(s); sel = String(flow.steps.length - 1);
+      }
+      renderSteps(); renderEditor();
+    }
+    function newStep(action, target) {
+      const s = Object.assign({}, DEFAULTS, { action, target: target || "", steps: [] });
+      if (action === "if_seen") s.timeout = 0;
+      return s;
+    }
+
+    const UNTIL_SEP = ",";
+    function untilList(v) {
+      const items = Array.isArray(v) ? v : String(v == null ? "" : v).split(UNTIL_SEP);
+      const out = [];
+      items.forEach(it => {
+        const name = String(it == null ? "" : it).trim();
+        if (name && !out.includes(name)) out.push(name);
+      });
+      return out;
+    }
+    function untilJoin(names) { return untilList(names).join(UNTIL_SEP + " "); }
+    function untilFirst(v) { return untilList(v)[0] || ""; }
+
+    function isNested(s) { return NESTED.includes(s.action); }
+    function listAt(path) {
+      const p = String(path).split(".").map(Number);
+      if (p.length === 1) return { arr: flow.steps, i: p[0] };
+      const parent = flow.steps[p[0]];
+      parent.steps = parent.steps || [];
+      return { arr: parent.steps, i: p[1] };
+    }
+    function stepAt(path) { if (path == null) return null; const { arr, i } = listAt(path); return arr[i]; }
+    function pathFor(arr, i) {
+      if (arr === flow.steps) return String(i);
+      const p = flow.steps.findIndex(s => s.steps === arr);
+      return p < 0 ? String(i) : `${p}.${i}`;
+    }
+    function humanNo(path) { return String(path).split(".").map(n => +n + 1).join("."); }
+
+    function stepProblem(s) {
+      if (s.enabled === false) return "";
+      const need = (META.actions[s.action] || { fields: [] }).fields;
+      const body = (s.steps || []).length;
+      if (s.action === "type_text" && !String(s.text || "").trim()) return "ยังไม่ได้ใส่ข้อความ";
+      for (const f of ["target", "until"]) {
+        if (!need.includes(f)) continue;
+        if (f === "target" && isNested(s) && body && s.action !== "if_seen") continue;
+        if (f === "target" && s.action === "swipe" && !s[f]) continue;
+        if (f === "target" && s.action === "type_text" && !s[f]) continue;
+        if (f === "until") {
+          const picks = untilList(s.until);
+          if (!picks.length) return "ยังไม่ได้เลือกรูปเงื่อนไข";
+          const gone = picks.filter(n => !TPLMAP[n]);
+          if (gone.length) return `ไม่มีรูป "${gone.join(", ")}" ในคลัง`;
+          continue;
+        }
+        if (!s[f]) return "ยังไม่ได้เลือกรูป";
+        if (!TPLMAP[s[f]]) return `ไม่มีรูป "${s[f]}" ในคลัง`;
+      }
+      return "";
+    }
+    function untilText(s) {
+      const picks = untilList(s.until);
+      if (!picks.length) return "จนเจอ (ยังไม่ได้เลือกรูป)";
+      if (picks.length === 1) return `จนเจอ ${picks[0]}`;
+      const head = picks.slice(0, 2).join(" หรือ ");
+      return picks.length === 2
+        ? `จนเจอ ${head} (ใบไหนก่อนก็จบ)`
+        : `จนเจอ ${head} หรืออีก ${picks.length - 2} ใบ (ใบไหนก่อนก็จบ)`;
+    }
+    function watchesUntil(s) {
+      return s.action === "watch_until" || s.action === "watch_choice";
+    }
+    const INTERNAL_MARKS = ["_button", "_label", "_lable", "_hud", "_icon"];
+    function noteText(s) {
+      return String(s == null || s.note == null ? "" : s.note).split(/\s+/).filter(Boolean).join(" ");
+    }
+    function noteIsTitle(s) {
+      const t = noteText(s);
+      return s.action === "watch_choice" && !!t && !INTERNAL_MARKS.some(k => t.includes(k));
+    }
+    function watchTitle(s) {
+      if (noteIsTitle(s)) return noteText(s);
+      const n = untilList(s.until).length;
+      return "เฝ้าจนเจอรายการที่เลือก" + (n ? ` (${n} อย่าง)` : "");
+    }
+    function stepSummary(s) {
+      const A = META.actions[s.action];
+      const bits = [];
+      const body = (s.steps || []).length;
+      if (s.action === "sleep") bits.push(`${s.seconds} วิ`);
+      else if (s.action === "tap_xy") bits.push(`(${s.x}, ${s.y})`, `รอ ${s.after} วิ`);
+      else if (s.action === "swipe") {
+        const dx = +s.dx || 0, dy = +s.dy || 0;
+        const way = [dy < 0 ? `ขึ้น ${-dy}` : dy > 0 ? `ลง ${dy}` : "",
+        dx < 0 ? `ซ้าย ${-dx}` : dx > 0 ? `ขวา ${dx}` : ""].filter(Boolean).join(" · ");
+        bits.push(way ? `ปัด${way} px` : "ยังไม่ได้ตั้งระยะปัด");
+        bits.push(s.target ? `เริ่มที่ ${s.target}` : `เริ่มที่ (${s.x}, ${s.y})`);
+        bits.push(`ใช้เวลา ${s.swipe_ms ?? 300} ms`);
+        if (s.after) bits.push(`แล้วหน่วง ${s.after} วิ`);
+      }
+      else if (s.action === "type_text") {
+        bits.push(s.text ? `พิมพ์ "${s.text}"` : "ยังไม่ได้ใส่ข้อความ");
+        bits.push(s.target ? `ลงช่อง ${s.target}` : "ลงช่องที่เคอร์เซอร์อยู่");
+        if (s.submit) bits.push("แล้วกด Enter");
+        if (s.after) bits.push(`แล้วหน่วง ${s.after} วิ`);
+      }
+      else if (s.action === "watch_until" || s.action === "watch_choice") {
+        bits.push(untilText(s));
+        bits.push(`ตรวจทุก ${s.poll} วิ`);
+        bits.push(`ไม่เกิน ${s.timeout} วิ`);
+      }
+      else if (s.action === "if_seen") {
+        bits.push(s.timeout > 0 ? `รอไม่เกิน ${s.timeout} วิ` : "ตรวจครั้งเดียว");
+        bits.push(`เจอ = ทำต่อ ${body} ขั้น · ไม่เจอ = ข้ามทั้งก้อน`);
+        if (s.after) bits.push(`แล้วหน่วง ${s.after} วิ`);
+      }
+      else if (s.action === "goto_step") {
+        bits.push(s.goto ? `ข้ามไปขั้น ${s.goto} ทันที` : "ข้ามไปจบรอบทันที");
+        bits.push("ไม่มีเงื่อนไข ไม่ได้ดูจอ");
+      }
+      else if (s.action === "guard") {
+        bits.push(s.timeout > 0 ? `รอเจอไม่เกิน ${s.timeout} วิ` : "เช็คครั้งเดียว");
+        bits.push(s.goto ? `ไม่เจอ = กระโดดไปขั้น ${s.goto}` : "ไม่เจอ = ข้ามไปจบรอบ");
+        if (s.streak > 1) bits.push(`ต้องไม่เจอ ${s.streak} ครั้งติดกันก่อน`);
+      }
+      else if (s.action === "skip_if_seen") {
+        bits.push(s.timeout > 0 ? `รอเจอไม่เกิน ${s.timeout} วิ` : "เช็คครั้งเดียว");
+        bits.push(s.goto ? `เจอ = กระโดดไปขั้น ${s.goto}` : "เจอ = ข้ามไปจบรอบ");
+        if (s.streak > 1) bits.push(`ต้องเจอ ${s.streak} ครั้งติดกันก่อน`);
+      }
+      else if (isNested(s)) {
+        bits.push(untilText(s));
+        bits.push(body ? `${body} ขั้นตอนข้างใน` : `แตะ ${s.target || ""}`);
+        bits.push(s.max_tries > 0 ? `สูงสุด ${s.max_tries} รอบ` : "วนจนกว่าจะเจอ (ไม่จำกัดรอบ)");
+      } else {
+        bits.push(`รอโผล่ไม่เกิน ${s.timeout} วิ`);
+        if (s.action === "tap") bits.push(`แล้วหน่วง ${s.after} วิ`);
+      }
+      if (s.optional && !["if_seen", "guard", "skip_if_seen"].includes(s.action)) bits.push("ข้ามได้ถ้าไม่เจอ");
+      const name = s.action === "watch_choice" ? watchTitle(s) : ((A && A.label) || s.action);
+      return { name, bits };
+    }
+
+    let problems = 0;
+    const collapsedSteps = new Set();
+    function collapseAllSteps() {
+      collapsedSteps.clear();
+      (flow.steps || []).forEach((s, i) => {
+        if ((s.steps || []).length) collapsedSteps.add(String(i));
+      });
+    }
+
+    function showBody(path, show) {
+      const box = $("steps");
+      if (!box) return;
+      const body = box.querySelector(`.body-box[data-body-of="${path}"]`);
+      if (body) body.classList.toggle("hidden", !show);
+      const caret = box.querySelector(`.step[data-path="${path}"] .act-fold svg`);
+      if (caret) caret.classList.toggle("rot90", show);
+    }
+    function foldStep(path, want) {
+      const p = String(path);
+      const on = want === undefined ? !collapsedSteps.has(p) : !!want;
+      if (on) collapsedSteps.add(p); else collapsedSteps.delete(p);
+      showBody(p, !on);
+      return on;
+    }
+
+    function preserveView(paint) {
+      const box = $("steps"), ed = $("editor");
+      const top = box ? box.scrollTop : 0;
+      const edTop = ed ? ed.scrollTop : 0;
+      const act = document.activeElement;
+      const live = act && act !== document.body;
+      const holder = live && act.closest ? act.closest("[data-path]") : null;
+      const backId = live ? act.id : "";
+      const backPath = holder ? holder.getAttribute("data-path") : "";
+      const from = live && act.selectionStart != null ? act.selectionStart : null;
+      const to = live && act.selectionEnd != null ? act.selectionEnd : null;
+
+      paint();
+
+      if (box) box.scrollTop = top;
+      if (ed) ed.scrollTop = edTop;
+      let back = backId ? document.getElementById(backId) : null;
+      if (!back && backPath) back = document.querySelector(`.step[data-path="${backPath}"]`);
+      if (back && back !== document.activeElement) {
+        back.focus();
+        if (from != null && back.setSelectionRange) {
+          try { back.setSelectionRange(from, to); } catch (e) {  }
+        }
+      }
+      const card = sel != null ? document.querySelector(`.step[data-path="${sel}"]`) : null;
+      if (card) card.scrollIntoView({ block: "nearest" });
+    }
+
+    function repaintStep(path) {
+      const p = String(path);
+      const box = $("steps");
+      const s = stepAt(p);
+      const old = box ? box.querySelector(`.step[data-path="${p}"]`) : null;
+      if (!s || !old) { renderSteps(); return; }
+      const act = document.activeElement;
+      const keep = act && old.contains(act) ? (act.dataset ? act.dataset.act : null) : null;
+      const hadFocus = !!(act && old.contains(act));
+
+      const fresh = card(s, p);
+      old.replaceWith(fresh);
+      bindStep(fresh);
+      const body = box.querySelector(`.body-box[data-body-of="${p}"]`);
+      if (body) {
+        body.classList.toggle("dim", s.enabled === false);
+        body.classList.toggle("hidden", collapsedSteps.has(p) && !runOpen.has(p));
+      }
+      if (hadFocus) {
+        const b = keep ? fresh.querySelector(`[data-act="${keep}"]`) : null;
+        (b || fresh).focus();
+      }
+      updateStepCount();
+      applyStepFind();
+      scheduleWarnings();
+    }
+
+    function selectStep(path) {
+      const old = sel;
+      sel = path;
+      if (old != null && String(old) !== String(path)
+        && $("steps").querySelector(`.step[data-path="${old}"]`)) repaintStep(old);
+      repaintStep(path);
+      renderEditor();
+    }
+
+    let stepWarn = {};
+    let warnList = [];
+    let warnTimer = null;
+
+    function warnLine(w) {
+      return el("div", { class: "step-warn" }, [
+        ico("alert"),
+        el("span", { text: `ตั้งไว้ ${w.count} อย่างแต่ยังไม่มีกลุ่ม ผู้ใช้จะไม่เห็นรายการติ๊กนี้` }),
+      ]);
+    }
+    function paintWarnings() {
+      const box = $("steps");
+      if (box) box.querySelectorAll(".step").forEach(node => {
+        const main = node.querySelector(".step-main");
+        if (!main) return;
+        const old = main.querySelector(".step-warn");
+        if (old) main.removeChild(old);
+        const w = stepWarn[String(node.getAttribute("data-path"))];
+        node.classList.toggle("warn", !!w);
+        if (w) main.append(warnLine(w));
+      });
+      const btn = $("warnJump");
+      if (!btn) return;
+      btn.classList.toggle("hidden", !warnList.length);
+      clear(btn);
+      if (!warnList.length) return;
+      btn.append(ico("alert"), el("span", { text: `${warnList.length} ขั้นไม่มีกลุ่ม` }));
+      const why = `${warnList.length} ขั้นตั้งตัวเลือกไว้แต่ยังไม่มีกลุ่ม`
+        + ` ผู้ใช้จะไม่เห็นรายการติ๊ก · กดเพื่อไปที่ขั้น ${warnList[0].no}`;
+      btn.setAttribute("title", why);
+      btn.setAttribute("aria-label", why);
+    }
+    function setWarnings(list) {
+      warnList = (list || []).filter(w => w && w.path != null);
+      stepWarn = {};
+      warnList.forEach(w => { stepWarn[String(w.path)] = w; });
+      paintWarnings();
+    }
+    async function refreshWarnings() {
+      let r = null;
+      try { r = await api().flow_warnings(flow); } catch (e) { return; }
+      setWarnings(r && r.unreachable);
+    }
+    function scheduleWarnings() {
+      clearTimeout(warnTimer);
+      warnTimer = setTimeout(refreshWarnings, 250);
+    }
+
+    function actBtn(act, title, iconName, cls) {
+      return el("button", {
+        class: "act-" + act + (cls ? " " + cls : ""),
+        attrs: { type: "button", "data-act": act, title, "aria-label": title },
+      }, [ico(iconName)]);
+    }
+    function card(s, path) {
+      const { name, bits } = stepSummary(s);
+      const bad = stepProblem(s);
+      if (bad) problems++;
+      const inner = String(path).includes(".");
+      const off = s.enabled === false;
+      const goals = untilList(s.until);
+      const picName = watchesUntil(s) ? (goals[0] || "") : s.target;
+      const noPic = s.action === "sleep" || s.action === "tap_xy"
+        || (s.action === "swipe" && !s.target)
+        || (isNested(s) && s.action !== "if_seen" && (s.steps || []).length);
+      const size = inner ? "thumb-sm" : "thumb-lg";
+
+      const box = el("div", {
+        class: "step" + (bad ? " bad" : "") + (path === sel ? " sel" : "") + (off ? " off" : ""),
+        attrs: {
+          "data-path": path, draggable: "true", tabindex: "0",
+          role: "button", "aria-label": `ขั้นตอนที่ ${humanNo(path)} ${name}`,
+        },
+      });
+      if (isNested(s)) {
+        box.append(el("button", {
+          class: "act-fold",
+          attrs: {
+            type: "button", "data-act": "fold", title: "พับ/กางขั้นตอนย่อย",
+            "aria-label": "พับ/กางขั้นตอนย่อย",
+            style: "width:24px;height:30px;flex:none;border:0;border-radius:6px;background:transparent;color:var(--text-3);cursor:pointer",
+          },
+        }, [ico("caret", collapsedSteps.has(String(path)) ? "" : "rot90")]));
+      }
+      box.append(el("span", { class: "step-no", text: humanNo(path) }));
+      if (!noPic) box.append(thumbEl(picName, size));
+      if (isNested(s) && s.action !== "if_seen" && goals.length) {
+        box.append(ico("arrow", "goal-arrow"), thumbEl(goals[0], "thumb-sm"));
+      }
+
+      const title = el("div", { class: "title", text: name + " " });
+      title.append(el("span", {
+        class: "target",
+        text: picName || (s.action === "tap_xy" ? `${s.x},${s.y}` : ""),
+      }));
+      if (goals.length > 1 && (watchesUntil(s) || isNested(s)))
+        title.append(el("span", { class: "tag", text: `+${goals.length - 1} ใบ` }));
+      if (off) title.append(el("span", { class: "tag tag-off", text: "ปิดอยู่" }));
+      if (s.group) title.append(el("span", { class: "tag", text: s.group }));
+
+      const main = el("div", { class: "step-main" }, [title]);
+      main.append(el("div", {
+        class: "step-sum" + (bad ? " bad" : ""),
+        text: bad ? bad : bits.join(" · "),
+      }));
+      if (s.note && !noteIsTitle(s)) main.append(el("div", { class: "step-sum", text: s.note }));
+      const warn = stepWarn[String(path)];
+      if (warn) { box.classList.add("warn"); main.append(warnLine(warn)); }
+      box.append(main);
+
+      box.append(el("div", { class: "step-acts" }, [
+        actBtn("toggle", off ? "เปิดใช้ขั้นตอนนี้" : "ปิดขั้นตอนนี้ไว้ (ไม่ลบ)",
+          off ? "off" : "on", off ? "" : "act-on"),
+        actBtn("up", "เลื่อนขึ้น", "up"),
+        actBtn("down", "เลื่อนลง", "down"),
+        actBtn("dup", "ทำซ้ำ", "dup"),
+        actBtn("del", "ลบ", "del"),
+      ]));
+      return box;
+    }
+    function bodyHint(s) {
+      return s.action === "if_seen"
+        ? `เจอ ${s.target || "รูปนี้"} ค่อยทำ ไม่เจอข้ามทั้งก้อนนี้ไปเลย`
+        : "ทำซ้ำข้างใน เล่นตามลำดับนี้ทุกรอบ";
+    }
+    function block(s, path) {
+      const out = [card(s, path)];
+      if (!isNested(s)) return out;
+      const cond = s.action === "if_seen";
+      const body = el("div", {
+        class: "body-box" + (cond ? " cond" : "") + (s.enabled === false ? " dim" : "")
+          + (collapsedSteps.has(String(path)) ? " hidden" : ""),
+        attrs: { "data-body-of": path },
+      });
+      body.append(el("div", { class: "body-hint" }, [
+        ico(cond ? "check" : "loop", "inline-ico"),
+        el("span", { text: " " + bodyHint(s) }),
+      ]));
+      (s.steps || []).forEach((c, k) => body.append(card(c, `${path}.${k}`)));
+      body.append(el("button", {
+        class: "body-drop",
+        attrs: { type: "button", "data-body": path },
+      }, [el("span", { text: "+ เพิ่ม/ลากรูปมาวางที่นี่" })]));
+      out.push(body);
+      return out;
+    }
+
+    function eachStep() {
+      const out = [];
+      flow.steps.forEach(s => { out.push(s); (s.steps || []).forEach(c => out.push(c)); });
+      return out;
+    }
+    function allGroups() {
+      flow.group_defs = flow.group_defs || [];
+      eachStep().forEach(s => {
+        if (s.group && !flow.group_defs.includes(s.group)) flow.group_defs.push(s.group);
+      });
+      return flow.group_defs;
+    }
+    function groupCount(name) { return eachStep().filter(s => s.group === name).length; }
+    function groupOn(name) {
+      const own = eachStep().filter(s => s.group === name);
+      return own.length > 0 && own.every(s => s.enabled !== false);
+    }
+    function setGroup(name, on) {
+      eachStep().forEach(s => { if (s.group === name) s.enabled = on; });
+      renderSteps(); renderEditor();
+    }
+    function renderGroupBar() {
+      const names = allGroups();
+      const bar = $("groupBar");
+      clear(bar);
+      $("groupNum").textContent = names.length ? `(${names.length})` : "(0)";
+      if (!names.length) {
+        bar.append(el("span", {
+          class: "hint",
+          text: 'ยังไม่มีกลุ่ม ตั้ง "กลุ่ม / ชื่อฟังก์ชัน" ในแผงขวาเพื่อให้โผล่เป็นสวิตช์ในหน้าผู้ใช้',
+        }));
+        return;
+      }
+      bar.append(el("span", { class: "hint", text: "สวิตช์ในหน้าผู้ใช้:" }));
+      names.forEach(n => {
+        const cnt = groupCount(n);
+        const on = groupOn(n);
+        const chip = el("span", { class: "gchip" });
+        const toggle = el("button", {
+          class: cnt === 0 ? "empty" : (on ? "on" : ""),
+          attrs: {
+            type: "button",
+            title: cnt === 0 ? "ยังไม่มีขั้นตอนในกลุ่มนี้ (ชื่อกลุ่มยังถูกเก็บไว้)"
+              : (on ? "กดเพื่อปิดทั้งกลุ่ม" : "กดเพื่อเปิดทั้งกลุ่ม"),
+          },
+          on: { click: () => { if (groupCount(n)) setGroup(n, !groupOn(n)); } },
+        }, [
+          ico(cnt === 0 ? "off" : (on ? "on" : "off"), "gchip-ico"),
+          el("span", { text: " " + n + " (" + cnt + ")" }),
+        ]);
+        const del = el("button", {
+          class: "gdel",
+          attrs: { type: "button", title: "ลบกลุ่มนี้ (ขั้นตอนยังอยู่ แค่ไม่อยู่กลุ่ม)", "aria-label": "ลบกลุ่ม " + n },
+          on: {
+            click: () => {
+              flow.group_defs = (flow.group_defs || []).filter(g => g !== n);
+              eachStep().forEach(s => { if (s.group === n) s.group = ""; });
+              renderSteps(); renderEditor();
+            }
+          },
+        }, [ico("del")]);
+        chip.append(toggle, del);
+        bar.append(chip);
+      });
+    }
+
+    function jumpCfg() {
+      const j = flow.jump = Object.assign({}, JUMP_DEFAULTS, flow.jump || {});
+      const last = flow.steps.length - 1;
+      if (last < 1 || j.start < 0 || j.end < 0) { j.start = j.end = -1; return j; }
+      j.start = Math.max(0, Math.min(j.start, last - 1));
+      j.end = Math.max(j.start + 1, Math.min(j.end, last));
+      return j;
+    }
+    function jumpSet(j) { return j.start >= 0 && j.start < j.end; }
+    function pct(v) { return Math.round((+v || 0) * 100); }
+
+    function stepOptions(extraBlank) {
+      const items = extraBlank ? [{ value: "", label: "" }] : [];
+      flow.steps.forEach((st, i) => items.push({
+        value: i,
+        label: `${i + 1}. ${(st.action === "watch_choice" ? watchTitle(st)
+          : (st.target || untilFirst(st.until) || (META.actions[st.action] || {}).label || st.action)).slice(0, 20)}`,
+      }));
+      return items;
+    }
+    let spamPick = null;
+    function spamTargetPick() {
+      if (spamPick) return spamPick;
+      spamPick = tplPicker({
+        title: "รูปที่จะแตะรัว (ใช้พิกัดของมัน)",
+        emptyText: "ใช้จุดเริ่มต้น (210,760)",
+        clearText: "ใช้จุดเริ่มต้น (210,760)",
+        noteOf: n => (TPLMAP[n] && !TPLMAP[n].pos ? " (ยังไม่มีพิกัด)" : ""),
+        items: () => {
+          const now = jumpCfg().target;
+          const out = [];
+          if (now && !TPLMAP[now]) out.push({ name: now, note: "ยังไม่มีในคลัง" });
+          TPL.forEach(t => out.push({ name: t.name, note: t.pos ? "" : "ยังไม่มีพิกัด" }));
+          return out;
+        },
+        onPick: name => { jumpCfg().target = name; renderSteps(); },
+      });
+      $("spamTargetPick").append(spamPick.el);
+      return spamPick;
+    }
+    function renderSpamBar() {
+      const j = jumpCfg();
+      const set = jumpSet(j);
+      const setVal = (id, v) => { if (document.activeElement !== $(id)) $(id).value = v; };
+      $("jumpOn").checked = j.enabled !== false;
+      spamTargetPick().setValue(j.target || "");
+      setVal("spamEvery", j.every);
+      setVal("jumpJitter", pct(j.jitter));
+      setVal("jumpDouble", pct(j.double));
+      setVal("jumpSlide", pct(j.slide));
+      setVal("jumpSlideMs", j.slide_ms);
+      setVal("jumpMaxTaps", j.max_taps || 0);
+      const range = (id, v) => {
+        const sel = $(id), had = sel.value;
+        fillSelect(sel, stepOptions(true), v);
+        if (v === "" && had !== "" && [...sel.options].some(o => o.value === had)) sel.value = had;
+      };
+      range("spamFrom", j.start >= 0 ? j.start : "");
+      range("spamTo", j.end >= 0 ? j.end : "");
+      $("spamInfo").textContent = set
+        ? `กระโดดคร่อมขั้น ${j.start + 2}-${j.end + 1}`
+        + (j.target ? "" : " · ใช้จุดเริ่มต้น (210,760)")
+        + (+j.max_taps > 0 ? ` · หยุดที่ ${j.max_taps} ครั้ง` : "")
+        + (j.enabled === false ? " · สวิตช์ปิดอยู่" : "")
+        : "";
+      $("spamNum").textContent = !set ? "(ปิด)"
+        : `${j.start + 2}-${j.end + 1}` + (j.enabled === false ? " (ปิด)" : "");
+      const bare = !set && spamWish !== true;
+      $("spamNone").style.display = bare ? "" : "none";
+      $("spamHead").style.display = bare ? "none" : "";
+      if (bare) setSpam(false);
+    }
+    function applySpamRange() {
+      const j = jumpCfg();
+      const a = $("spamFrom").value, b = $("spamTo").value;
+      if (a === "" || b === "") { j.start = j.end = -1; }
+      else {
+        j.start = Math.min(+a, +b);
+        j.end = Math.max(j.start + 1, Math.max(+a, +b));
+        if (j.end > flow.steps.length - 1) { j.end = flow.steps.length - 1; j.start = Math.min(j.start, j.end - 1); }
+      }
+      renderSteps();
+    }
+    function jumpCard(j) {
+      const how = `แตะ ${j.target || "จุดเริ่มต้น (210,760)"} ทุก ~${j.every} วิ`
+        + ` · สุ่มจังหวะ ±${pct(j.jitter)}% · สองชั้น ${pct(j.double)}% · สไลด์ ${pct(j.slide)}%`
+        + (+j.max_taps > 0 ? ` · หยุดที่ ${j.max_taps} ครั้ง` : "");
+      const box = el("div", { class: "jump-card" });
+      if (j.enabled === false) box.style.opacity = ".5";
+      box.append(
+        ico("jump", "jump-ico"),
+        el("b", { text: "กระโดดรัว", attrs: { style: "color:var(--primary);flex:none" } }),
+        el("span", { class: "hint", text: how, attrs: { style: "flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" } }),
+        el("span", { class: "hint", text: `จนจบขั้น ${j.end + 1}` }),
+      );
+      if (j.enabled === false) box.append(el("span", { class: "tag tag-off", text: "ปิดอยู่" }));
+      return box;
+    }
+
+    function paintSteps() {
+      const box = $("steps");
+      clear(box);
+      scheduleWarnings();
+      if (!flow.steps.length) {
+        box.append(el("p", {
+          class: "hint",
+          text: 'ยังไม่มีขั้นตอน คลิกรูปทางซ้าย หรือกดปุ่ม "เพิ่มขั้นตอน" บนแถบหัวลิสต์',
+        }));
+        updateStepCount();
+        renderGroupBar();
+        renderSpamBar();
+        return;
+      }
+      problems = 0;
+      const j = jumpCfg();
+      const jset = jumpSet(j);
+      flow.steps.forEach((s, i) => {
+        if (jset && i === j.start + 1) box.append(jumpCard(j));
+        const parts = block(s, String(i));
+        if (jset && i > j.start && i <= j.end) {
+          const wrap = el("div", { class: "jump-span flex flex-col gap-1" });
+          parts.forEach(p => wrap.append(p));
+          box.append(wrap);
+        } else parts.forEach(p => box.append(p));
+      });
+      updateStepCount();
+      renderGroupBar();
+      renderSpamBar();
+      bindSteps();
+      runOpen.forEach(p => showBody(p, true));
+      applyStepFind();
+    }
+    function renderSteps(only) {
+      const path = only == null ? null
+        : (typeof only === "object" ? pathOfStep(only) : String(only));
+      if (path != null && $("steps").querySelector(`.step[data-path="${path}"]`)) {
+        repaintStep(path);
+        return;
+      }
+      preserveView(paintSteps);
+    }
+    function pathOfStep(step) {
+      let hit = null;
+      (flow.steps || []).forEach((s, i) => {
+        if (s === step) hit = String(i);
+        (s.steps || []).forEach((c, k) => { if (c === step) hit = `${i}.${k}`; });
+      });
+      return hit;
+    }
+
+    function updateStepCount() {
+      const all = flow.steps.concat(...flow.steps.map(s => s.steps || []));
+      const inner = all.length - flow.steps.length;
+      const off = all.filter(s => s.enabled === false).length;
+      problems = all.filter(s => stepProblem(s)).length;
+      const count = $("stepCount");
+      count.textContent = `${flow.steps.length} ขั้นตอน` + (inner ? ` (+${inner} ข้างใน)` : "")
+        + (off ? ` · ${off} ปิดอยู่` : "")
+        + (problems ? ` · ${problems} ยังไม่พร้อม` : "");
+      count.style.color = problems ? "var(--danger)" : "";
+    }
+
+    let findAt = -1;
+    function applyStepFind() {
+      const q = ($("stepSearch").value || "").trim().toLowerCase();
+      let hits = 0;
+      $("steps").querySelectorAll(".step").forEach(c => {
+        const on = !!q && c.textContent.toLowerCase().includes(q);
+        c.classList.toggle("hit", on);
+        if (on) hits++;
+      });
+      const out = $("stepFound");
+      out.className = "hint" + (q && !hits ? " hint-warn" : "");
+      out.textContent = !q ? "" : hits ? `เจอ ${hits}` : "ไม่เจอ";
+      return hits;
+    }
+    function findNext() {
+      const hits = [...$("steps").querySelectorAll(".step.hit")];
+      if (!hits.length) return;
+      findAt = (findAt + 1) % hits.length;
+      const card = hits[findAt];
+      const parent = String(card.getAttribute("data-path")).split(".")[0];
+      if (collapsedSteps.has(parent)) foldStep(parent, false);
+      card.scrollIntoView({ block: "center" });
+      card.focus();
+    }
+
+    let edgeDir = 0, edgeTimer = null;
+    function edgeScroll(y) {
+      const box = $("steps");
+      if (!box) return;
+      const r = box.getBoundingClientRect(), edge = 56;
+      edgeDir = y < r.top + edge ? -1 : y > r.bottom - edge ? 1 : 0;
+      if (!edgeDir) return stopEdgeScroll();
+      if (!edgeTimer) edgeTimer = setInterval(() => { box.scrollTop += edgeDir * 18; }, 30);
+    }
+    function stopEdgeScroll() {
+      clearInterval(edgeTimer);
+      edgeTimer = null;
+      edgeDir = 0;
+    }
+
+    function bindSteps() {
+      $("steps").querySelectorAll(".step").forEach(bindStep);
+      $("steps").querySelectorAll(".body-drop").forEach(bindDrop);
+    }
+    function bindStep(e) {
+      const path = e.dataset.path;
+      e.onclick = ev => {
+        const btn = ev.target.closest ? ev.target.closest("[data-act]") : null;
+        const act = btn && btn.dataset.act;
+        if (act === "fold") {
+          ev.stopPropagation();
+          foldStep(path);
+          return;
+        }
+        if (act) { ev.stopPropagation(); stepAction(path, act, btn); return; }
+        selectStep(path);
+      };
+      e.onkeydown = ev => {
+        if (ev.target !== e || (ev.key !== "Enter" && ev.key !== " ")) return;
+        ev.preventDefault();
+        selectStep(path);
+        const back = document.querySelector(`.step[data-path="${path}"]`);
+        if (back) back.focus();
+      };
+      e.ondragstart = ev => { ev.stopPropagation(); ev.dataTransfer.setData("text/step", path); };
+      e.ondragover = ev => {
+        ev.preventDefault(); ev.stopPropagation();
+        e.classList.add("drag-over");
+        edgeScroll(ev.clientY);
+      };
+      e.ondragleave = () => e.classList.remove("drag-over");
+      e.ondragend = stopEdgeScroll;
+      e.ondrop = ev => {
+        ev.preventDefault(); ev.stopPropagation();
+        e.classList.remove("drag-over");
+        stopEdgeScroll();
+        const from = ev.dataTransfer.getData("text/step");
+        const tpl = ev.dataTransfer.getData("text/tpl");
+        if (from) moveTo(from, path);
+        else if (tpl) {
+          const { arr, i } = listAt(path);
+          arr.splice(i, 0, newStep("tap", tpl));
+          sel = pathFor(arr, i);
+          renderSteps(); renderEditor();
+        }
+      };
+    }
+    function bindDrop(e) {
+      const path = e.dataset.body;
+      e.onclick = ev => { ev.stopPropagation(); addInner(path, ""); };
+      e.ondragover = ev => {
+        ev.preventDefault(); ev.stopPropagation();
+        e.classList.add("over");
+        edgeScroll(ev.clientY);
+      };
+      e.ondragleave = () => e.classList.remove("over");
+      e.ondragend = stopEdgeScroll;
+      e.ondrop = ev => {
+        ev.preventDefault(); ev.stopPropagation();
+        e.classList.remove("over");
+        stopEdgeScroll();
+        const tpl = ev.dataTransfer.getData("text/tpl");
+        const from = ev.dataTransfer.getData("text/step");
+        if (tpl) addInner(path, tpl);
+        else if (from) {
+          const parent = stepAt(path);
+          parent.steps = parent.steps || [];
+          moveTo(from, `${path}.${parent.steps.length}`, true);
+        }
+      };
+    }
+    function addInner(path, tpl) {
+      const parent = stepAt(path);
+      parent.steps = parent.steps || [];
+      parent.steps.push(newStep("tap", tpl));
+      sel = `${path}.${parent.steps.length - 1}`;
+      renderSteps(); renderEditor();
+    }
+    function moveTo(fromPath, toPath, append) {
+      const src = listAt(fromPath), dst = listAt(toPath);
+      const moving = src.arr[src.i];
+      if (!moving || moving === dst.arr[dst.i]) return;
+      const intoBody = String(toPath).includes(".");
+      if (isNested(moving) && intoBody) { pushLog("ใส่ลูปซ้อนในลูปไม่ได้"); return; }
+      src.arr.splice(src.i, 1);
+      let idx = append ? dst.arr.length : dst.i;
+      if (src.arr === dst.arr && src.i < idx) idx--;
+      idx = Math.max(0, Math.min(idx, dst.arr.length));
+      dst.arr.splice(idx, 0, moving);
+      sel = pathFor(dst.arr, idx);
+      renderSteps(); renderEditor();
+    }
+    function stepAction(path, act, btn) {
+      const { arr, i } = listAt(path);
+      if (act === "toggle") {
+        arr[i].enabled = arr[i].enabled === false;
+        repaintStep(path);
+        if (String(path) === String(sel)) renderEditor();
+      }
+      else if (act === "up" && i > 0) moveTo(path, pathFor(arr, i - 1));
+      else if (act === "down" && i < arr.length - 1) moveTo(path, pathFor(arr, i + 1));
+      else if (act === "dup") {
+        const copy = JSON.parse(JSON.stringify(arr[i]));
+        arr.splice(i + 1, 0, copy); sel = pathFor(arr, i + 1);
+        renderSteps(); renderEditor();
+      } else if (act === "del") {
+        const run = () => {
+          const now = listAt(path);
+          now.arr.splice(now.i, 1);
+          sel = now.arr.length ? pathFor(now.arr, Math.min(now.i, now.arr.length - 1))
+            : (now.arr === flow.steps ? null
+              : String(flow.steps.findIndex(s => s.steps === now.arr)));
+          renderSteps(); renderEditor();
+        };
+        if (!btn) return run();
+        btn.focus();
+        armed(btn, `กดอีกครั้งเพื่อลบขั้นที่ ${humanNo(path)}`, run);
+      }
+    }
+
+    const FIELD = {
+      target: { label: "รูปที่ใช้", type: "template" },
+      until: { label: "หยุดเมื่อเจอรูป", type: "templates" },
+      timeout: { label: "รอรูปโผล่ไม่เกิน (วิ)", type: "number", step: 0.5, min: 0 },
+      after: { label: "หน่วงหลังแตะ (วิ)", type: "number", step: 0.1, min: 0 },
+      seconds: { label: "หน่วงเวลา (วิ)", type: "number", step: 0.1, min: 0 },
+      max_tries: { label: "แตะซ้ำสูงสุด (ครั้ง) · 0 = ไม่จำกัด", type: "number", step: 1, min: 0 },
+      poll: { label: "ตรวจจอทุก ๆ (วิ)", type: "number", step: 0.1, min: 0.1 },
+      x: { label: "x (พิกัด base)", type: "number", step: 1, min: 0 },
+      y: { label: "y (พิกัด base)", type: "number", step: 1, min: 0 },
+      dx: { label: "ปัดไปทางขวา/ซ้าย (base px · ลบ = ซ้าย)", type: "number", step: 10, min: -1600 },
+      dy: { label: "ปัดลง/ขึ้น (base px · ลบ = ขึ้น)", type: "number", step: 10, min: -900 },
+      swipe_ms: { label: "ปัดนานกี่ ms", type: "number", step: 20, min: 60 },
+      optional: { label: "ไม่เจอก็ข้ามไป (ไม่ล้มแผน)", type: "bool" },
+      text: { label: "ข้อความที่จะพิมพ์ (อังกฤษ/ตัวเลขเท่านั้น)", type: "text" },
+      submit: { label: "กด Enter หลังพิมพ์", type: "bool" },
+      goto: { label: "ไม่เจอ = กระโดดไปขั้นที่ (0 = ข้ามไปจบรอบ)", type: "number", step: 1, min: 0 },
+      streak: { label: "ต้องเป็นจริงกี่ครั้งติดกันถึงจะกระโดด (1 = ครั้งแรกก็กระโดด)",
+                type: "number", step: 1, min: 1 },
+    };
+    const FIELD_LABELS = {
+      if_seen: {
+        target: "รูปเงื่อนไข (เจอแล้วค่อยทำข้างใน)",
+        timeout: "รอรูปก่อนตัดสินใจ (วิ) · 0 = ตรวจครั้งเดียว",
+        after: "หน่วงหลังทำข้างในเสร็จ (วิ)",
+      },
+      swipe: {
+        target: "รูปยึดจุดเริ่ม (ไม่ใส่ก็ได้)",
+        x: "x จุดเริ่ม (base)",
+        y: "y จุดเริ่ม (base)",
+        after: "หน่วงหลังปัด (วิ)",
+      },
+      skip_if_seen: {
+        target: "รูปเงื่อนไข (เจอแล้วข้าม)",
+        timeout: "รอรูปก่อนตัดสินใจ (วิ) · 0 = ตรวจครั้งเดียว",
+        goto: "เจอ = กระโดดไปขั้นที่ (0 = ข้ามไปจบรอบ)",
+        streak: "ต้องเจอกี่ครั้งติดกันถึงจะกระโดด (1 = ครั้งแรกก็กระโดด)",
+      },
+      guard: {
+        streak: "ต้องไม่เจอกี่ครั้งติดกันถึงจะกระโดด (1 = ครั้งแรกก็กระโดด)",
+      },
+      goto_step: {
+        goto: "ข้ามไปขั้นตอนที่ (0 = ข้ามไปจบรอบ)",
+      },
+      type_text: {
+        target: "รูปช่องค้นหา (แตะก่อนพิมพ์ · ไม่ใส่ = เคอร์เซอร์อยู่ในช่องแล้ว)",
+        timeout: "รอช่องค้นหาโผล่ไม่เกิน (วิ)",
+        after: "หน่วงหลังพิมพ์ (วิ)",
+        optional: "ไม่เจอช่องก็ข้ามไป (ไม่ล้มแผน)",
+      },
+    };
+
+    let untilSeq = 0;
+
+    function untilChoices(picked) {
+      const on = new Set(picked);
+      return TPL.filter(t => !on.has(t.name)).map(t => ({ name: t.name }));
+    }
+
+    function untilRow(picks, i, act) {
+      const name = picks[i];
+      const gone = !TPLMAP[name];
+      const id = `${act.id}-on${i}`;
+      const cb = el("input", { class: "pick-cb", attrs: { type: "checkbox", id } });
+      cb.checked = true;
+      cb.onchange = () => act.untick(name);
+      const btn = (iconName, title, run) => el("button", {
+        attrs: { type: "button", title, "aria-label": `${title}: ${name}` },
+        on: { click: run },
+      }, [ico(iconName)]);
+      const up = btn("up", "ให้ตรวจก่อน", () => act.move(name, -1));
+      const down = btn("down", "ให้ตรวจทีหลัง", () => act.move(name, 1));
+      act.keep(name, { cb, up, down });
+      return el("div", { class: "pick" }, [
+        cb,
+        el("label", { class: "pick-main", attrs: { for: id } }, [
+          el("span", { class: "pick-no", text: String(i + 1) }),
+          thumbEl(name, "thumb-sm", ""),
+          el("span", {
+            class: "pick-name" + (gone ? " gone" : ""),
+            attrs: { title: name },
+            text: gone ? `${name} (ไม่มีในคลัง)` : name,
+          }),
+        ]),
+        el("div", { class: "step-acts" }, [up, down]),
+      ]);
+    }
+
+    function untilField(s, label) {
+      const id = "until" + (++untilSeq);
+      const box = el("fieldset", { class: "choice" });
+      box.append(el("legend", { class: "choice-lg", text: `${label} (เลือกได้หลายอัน)` }));
+      const why = el("p", {
+        class: "hint", attrs: { style: "margin:var(--space-1) 0 0" },
+        text: "ติ๊กใบไหน = เอาใบนั้น · เจอใบใดใบหนึ่งก็จบขั้นนี้"
+          + " · ติ๊กหลายใบเมื่อไร ผู้ใช้จะติ๊กเลือกเองได้ในหน้าโปรแกรม",
+      });
+
+      const onHead = el("b", { class: "choice-sub" });
+      const onList = el("div", { class: "picks" });
+      const q = el("input", {
+        class: "fld", attrs: {
+          type: "text", id: id + "-q", autocomplete: "off", spellcheck: "false",
+          placeholder: "พิมพ์บางส่วนของชื่อ เช่น coin",
+        },
+      });
+      const qHead = el("label", {
+        class: "choice-sub", attrs: { for: id + "-q" }, text: "ค้นหารูปในคลัง",
+      });
+      const status = el("p", { class: "hint until-status", attrs: { role: "status" } });
+      const lib = el("div", { class: "choice-grid until-lib scroll" });
+      box.append(onHead, onList, why, qHead, q, status, lib);
+
+      const focusable = new Map();
+      const orphans = new Set();
+      let keepSeen = [];
+      let said = "";
+
+      const redraw = () => {
+        const picks = untilList(s.until);
+        picks.forEach(n => { if (!TPLMAP[n]) orphans.add(n); });
+        focusable.clear();
+        clear(onList); clear(lib);
+
+        onHead.textContent = picks.length
+          ? `ติ๊กไว้ ${picks.length} ใบ · บนสุด = ตรวจก่อน`
+          : "ยังไม่ได้ติ๊กสักใบ";
+        if (!picks.length) {
+          onList.append(el("p", {
+            class: "hint hint-warn", attrs: { style: "margin:0" },
+            text: "ขั้นนี้จะถูกข้ามตอนเล่นจริง · ติ๊กจากคลังข้างล่างอย่างน้อยหนึ่งใบ",
+          }));
+        }
+        const act = {
+          id, untick, move,
+          keep: (name, parts) => focusable.set(name, parts),
+        };
+        picks.forEach((_, i) => onList.append(untilRow(picks, i, act)));
+
+        const rest = untilChoices(picks);
+        orphans.forEach(n => { if (!picks.includes(n)) rest.unshift({ name: n, gone: true }); });
+        const typed = q.value.trim();
+        let shown = tplMatch(rest, typed);
+        const onHit = typed ? tplMatch(picks.map(n => ({ name: n })), typed).length : 0;
+        let near = false;
+        if (typed && !shown.length && !onHit) {
+          shown = tplNear(rest, typed);
+          near = shown.length > 0;
+        }
+        const back = rest.filter(it => keepSeen.includes(it.name) && !shown.includes(it));
+        shown = back.concat(shown);
+
+        shown.forEach(it => {
+          const cb = el("input", { attrs: { type: "checkbox" } });
+          cb.checked = false;
+          cb.onchange = () => tick(it.name);
+          focusable.set(it.name, { cb });
+          lib.append(el("label", { class: "check choice-opt" }, [
+            cb,
+            thumbEl(it.name, "thumb-sm", ""),
+            el("span", {
+              class: "pick-name" + (it.gone ? " gone" : ""),
+              attrs: { title: it.name },
+              text: it.gone ? `${it.name} (ไม่มีในคลัง)` : it.name,
+            }),
+          ]));
+        });
+        if (!shown.length) {
+          lib.append(el("p", {
+            class: "hint", attrs: { style: "margin:0" },
+            text: !TPL.length ? "ยังไม่มีรูปในคลัง (คาลิเบรตเพิ่มได้ที่แท็บคลังรูป)"
+              : !rest.length ? "ติ๊กครบทุกใบในคลังแล้ว"
+                : onHit ? `ใบที่ชื่อมีคำว่า "${typed}" ติ๊กไว้แล้ว ดูกองข้างบน`
+                  : `ไม่เจอรูปที่มีคำว่า "${typed}" · ลองพิมพ์แค่บางส่วน เช่น coin · ok · box · mail`,
+          }));
+        }
+
+        status.className = "hint until-status"
+          + (!said && typed && (!shown.length || near) ? " hint-warn" : "");
+        status.textContent = said ? said
+          : !typed ? `คลังเหลือ ${rest.length} ใบที่ยังไม่ได้ติ๊ก · พิมพ์เพื่อกรองเฉพาะกองนี้`
+            : !shown.length ? (onHit
+              ? `"${typed}" ตรงกับ ${onHit} ใบที่ติ๊กไว้แล้ว (อยู่กองบน) · ในคลังที่เหลือไม่มีชื่อนี้`
+              : `ไม่เจอ "${typed}" · 0 จาก ${rest.length} ใบที่ยังไม่ได้ติ๊ก`)
+              : near ? `ไม่เจอ "${typed}" ตรง ๆ · นี่คือ ${shown.length} ชื่อที่ใกล้เคียงที่สุด`
+                : `เจอ ${shown.length} จาก ${rest.length} ใบที่ยังไม่ได้ติ๊ก`
+                + (onHit ? ` · อีก ${onHit} ใบที่ชื่อตรงติ๊กไว้แล้ว` : "");
+      };
+
+      function write(next, msg, name, kind) {
+        s.until = untilJoin(next);
+        said = msg || "";
+        redraw();
+        renderSteps(s);
+        const parts = focusable.get(name);
+        (parts && parts[kind || "cb"] ? parts[kind || "cb"] : q).focus();
+      }
+      function tick(name) {
+        const next = untilList(s.until).concat([name]);
+        keepSeen = [];
+        write(next, `ติ๊ก "${name}" แล้ว · เป็นใบที่ ${next.length} ที่จะถูกตรวจ`, name);
+      }
+      function untick(name) {
+        const next = untilList(s.until).filter(n => n !== name);
+        keepSeen = [name];
+        write(next, next.length
+          ? `เอา "${name}" ออกแล้ว · เหลือ ${next.length} ใบ`
+          : `เอา "${name}" ออกแล้ว · ไม่เหลือสักใบ ขั้นนี้จะถูกข้ามตอนเล่นจริง`, name);
+      }
+      function move(name, dir) {
+        const cur = untilList(s.until);
+        const i = cur.indexOf(name), to = i + dir;
+        if (i < 0) return;
+        if (to < 0 || to >= cur.length) {
+          said = `"${name}" อยู่${dir < 0 ? "บนสุด" : "ล่างสุด"}แล้ว`;
+          status.textContent = said;
+          return;
+        }
+        const next = cur.slice();
+        next.splice(to, 0, next.splice(i, 1)[0]);
+        write(next, `ย้าย "${name}" ไปเป็นลำดับที่ ${to + 1}`, name, dir < 0 ? "up" : "down");
+      }
+
+      q.oninput = () => { said = ""; keepSeen = []; redraw(); };
+      redraw();
+      return box;
+    }
+
+    function renderEditor() {
+      const box = $("editor");
+      const top = box.dataset.forPath === String(sel) ? box.scrollTop : 0;
+      box.dataset.forPath = String(sel);
+      clear(box);
+      const s = stepAt(sel);
+      if (!s) {
+        box.append(el("p", { class: "hint", text: "เลือกขั้นตอนทางซ้ายเพื่อแก้ไข" }));
+        return;
+      }
+      const inner = String(sel).includes(".");
+      const body = (s.steps || []).length;
+      const fields = (META.actions[s.action] || { fields: [] }).fields;
+      const labelOf = f => (FIELD_LABELS[s.action] || {})[f] || FIELD[f].label;
+
+      box.append(el("p", {
+        class: "hint",
+        attrs: { style: "margin:0" },
+        text: inner
+          ? `ขั้นตอนที่ ${humanNo(sel)} อยู่ข้างในลูปที่ ${humanNo(String(sel).split(".")[0])}`
+          : `ขั้นตอนที่ ${humanNo(sel)}`,
+      }));
+
+      const enabled = el("input", { attrs: { type: "checkbox", id: "f_enabled" } });
+      enabled.checked = s.enabled !== false;
+      box.append(el("label", { class: "check", attrs: { style: "justify-content:space-between;width:100%" } },
+        [el("span", { text: "เปิดใช้ขั้นตอนนี้" }),
+        el("span", { class: "sw" }, [enabled, el("span", { class: "track" }), el("span", { class: "knob" })])]));
+
+      const actSel = el("select", { class: "fld", attrs: { id: "f_action" } });
+      fillSelect(actSel, Object.entries(META.actions)
+        .filter(([k]) => !(inner && NESTED.includes(k)))
+        .map(([k, v]) => ({ value: k, label: v.label })), s.action);
+      box.append(el("label", { class: "field" }, [
+        el("span", { class: "field-label", text: "ทำอะไร" }), actSel,
+      ]));
+
+      if (isNested(s)) {
+        const cond = s.action === "if_seen";
+        const g = el("div", {
+          attrs: { style: "background:var(--high);border-radius:var(--radius-sm);padding:var(--space-3);display:flex;flex-direction:column;gap:var(--space-2)" },
+        });
+        g.append(el("b", {
+          text: `ขั้นตอนข้างใน (${body})`,
+          attrs: { style: "font-size:var(--fs-xs);color:" + (cond ? "var(--ok)" : "var(--primary)") },
+        }));
+        const lines = cond
+          ? ["ตรวจจอ 1 ครั้ง เจอรูปเงื่อนไขค่อยเล่นขั้นตอนข้างใน",
+            "ไม่เจอ = ข้ามทั้งก้อนนี้ทันที ไม่ต้องรอหมดเวลาทีละขั้น",
+            "ใช้กับของที่โผล่บ้างไม่โผล่บ้าง เช่น เลเวลอัป ป๊อปอัป กล่องรางวัล"]
+          : ["ทุกรอบจะเล่นขั้นตอนข้างในตามลำดับ แล้วเช็กว่ารูปเงื่อนไขโผล่หรือยัง"]
+            .concat(body ? [] : ['ถ้าไม่ใส่อะไรเลย จะแตะแค่ "รูปที่ใช้" รอบละครั้ง']);
+        lines.forEach(t => g.append(el("p", { class: "hint", text: t, attrs: { style: "margin:0" } })));
+        g.append(el("button", {
+          class: "btn " + (cond ? "btn-go" : "btn-primary"),
+          attrs: { type: "button", id: "addInnerBtn" },
+        }, [ico("plus"), el("span", { text: "เพิ่มขั้นตอนข้างใน" })]));
+        box.append(g);
+      }
+
+      for (const f of fields) {
+        const cfg = FIELD[f]; if (!cfg) continue;
+        if (f === "target" && isNested(s) && body && s.action !== "if_seen") continue;
+        if (cfg.type === "templates") {
+          box.append(untilField(s, labelOf(f)));
+        } else if (cfg.type === "template") {
+          const pick = tplPicker({
+            title: labelOf(f),
+            value: s[f] || "",
+            emptyText: "ยังไม่ได้เลือกรูป · กดเพื่อค้นหา",
+            clearText: "ไม่ใช้รูป (ปล่อยว่าง)",
+            items: () => tplItems(s[f]),
+            onPick: name => { s[f] = name; repaintStep(sel); },
+          });
+          box.append(el("div", { class: "field" }, [
+            el("span", { class: "field-label", text: labelOf(f) }), pick.el,
+          ]));
+        } else if (cfg.type === "text") {
+          const box2 = el("input", {
+            class: "fld", attrs: { type: "text", id: "f_" + f, spellcheck: "false" },
+          });
+          box2.value = s[f] || "";
+          box.append(el("label", { class: "field" }, [
+            el("span", { class: "field-label", text: labelOf(f) }), box2,
+          ]));
+        } else if (cfg.type === "bool") {
+          const cb = el("input", { attrs: { type: "checkbox", id: "f_" + f } });
+          cb.checked = !!s[f];
+          box.append(el("label", { class: "check" }, [cb, el("span", { text: labelOf(f) })]));
+        } else {
+          const num = el("input", {
+            class: "fld",
+            attrs: {
+              type: "number", id: "f_" + f, value: String(s[f] ?? 0),
+              step: String(cfg.step), min: String(cfg.min),
+            },
+          });
+          box.append(el("label", { class: "field" }, [
+            el("span", { class: "field-label", text: labelOf(f) }), num,
+          ]));
+        }
+      }
+
+      const groupSel = el("select", { class: "fld", attrs: { id: "f_group" } });
+      fillSelect(groupSel, [{ value: "", label: "ไม่อยู่กลุ่มไหน" }]
+        .concat(allGroups().map(g => ({ value: g, label: g })))
+        .concat([{ value: "__new__", label: "+ ตั้งกลุ่มใหม่..." }]), s.group || "");
+      const gWrap = el("div", { class: "field" }, [
+        el("span", { class: "field-label", text: "กลุ่ม / ชื่อฟังก์ชัน" }),
+        el("span", { class: "hint", text: "ขั้นตอนที่กลุ่มเดียวกัน = สวิตช์เดียวในหน้าผู้ใช้" }),
+        groupSel,
+      ]);
+      const newRow = el("div", { class: "hidden", attrs: { id: "newGroupRow", style: "margin-top:var(--space-2)" } }, [
+        el("div", { class: "flex gap-2" }, [
+          el("input", { class: "fld flex-1", attrs: { type: "text", id: "newGroupName", placeholder: "ชื่อกลุ่มใหม่" } }),
+          el("button", { class: "btn btn-primary", attrs: { type: "button", id: "newGroupOk" }, text: "เพิ่ม" }),
+        ]),
+      ]);
+      gWrap.append(newRow);
+      box.append(gWrap);
+
+      const note = el("input", { class: "fld", attrs: { type: "text", id: "f_note" } });
+      note.value = s.note || "";
+      const noteLabel = (META.note_labels || {})[s.action] || "โน้ต (ไว้เตือนตัวเอง)";
+      box.append(el("label", { class: "field" }, [
+        el("span", { class: "field-label", text: noteLabel }), note,
+      ]));
+      let syncNoteHint = null;
+      if (s.action === "watch_choice") {
+        const noteHint = el("p", { class: "hint", attrs: { id: "noteHint", style: "margin:0" } });
+        note.setAttribute("aria-describedby", "noteHint");
+        syncNoteHint = () => {
+          const bad = !!noteText(s) && !noteIsTitle(s);
+          noteHint.className = "hint" + (bad ? " hint-warn" : "");
+          noteHint.textContent = bad
+            ? `ชื่อนี้มีชื่อรูปปนอยู่ จะไม่ถูกใช้ · log จะเรียกขั้นนี้ว่า "${watchTitle(s)}"`
+            : `log จะเรียกขั้นนี้ว่า "${watchTitle(s)}"`;
+        };
+        syncNoteHint();
+        box.append(noteHint);
+      }
+
+      $("f_action").onchange = e => {
+        s.action = e.target.value;
+        if (!isNested(s)) s.steps = [];
+        renderSteps(); renderEditor();
+      };
+      if ($("addInnerBtn")) $("addInnerBtn").onclick = () => addInner(sel, "");
+      $("f_enabled").onchange = e => { s.enabled = e.target.checked; repaintStep(sel); };
+      $("f_group").onchange = e => {
+        if (e.target.value === "__new__") {
+          $("newGroupRow").classList.remove("hidden");
+          $("newGroupName").focus();
+          return;
+        }
+        s.group = e.target.value;
+        repaintStep(sel);
+        renderGroupBar();
+      };
+      const addGroup = () => {
+        const name = $("newGroupName").value.trim();
+        if (!name) return;
+        if (!flow.group_defs.includes(name)) flow.group_defs.push(name);
+        s.group = name;
+        renderSteps(); renderEditor();
+      };
+      $("newGroupOk").onclick = addGroup;
+      $("newGroupName").onkeydown = e => { if (e.key === "Enter") addGroup(); };
+      for (const f of fields.concat(["note"])) {
+        const cfg = FIELD[f];
+        if (cfg && cfg.type === "templates") continue;
+        if (cfg && cfg.type === "template") continue;
+        const e = $("f_" + f); if (!e) continue;
+        e.oninput = e.onchange = () => {
+          s[f] = cfg && cfg.type === "bool" ? e.checked
+            : cfg && cfg.type === "number" ? (parseFloat(e.value) || 0)
+              : e.value;
+          if (f === "note" && syncNoteHint) syncNoteHint();
+          repaintStep(sel);
+        };
+      }
+      box.scrollTop = top;
+    }
+
+    async function refreshFlows(pick) {
+      const names = await api().list_flows();
+      fillSelect($("flowSelect"), names.map(n => ({ value: n, label: n })));
+      if (pick && names.includes(pick)) $("flowSelect").value = pick;
+      return names;
+    }
+    async function openFlow(name) {
+      flow = await api().load_flow(name);
+      flow.steps = (flow.steps || []).map(s => ({ ...s, steps: (s.steps || []).map(c => ({ ...c })) }));
+      flow.group_defs = flow.group_defs || [];
+      jumpCfg();
+      spamWish = null;
+      collapseAllSteps();
+      runOpen.clear();
+      sel = flow.steps.length ? "0" : null;
+      $("flowName").value = flow.name || name;
+      $("flowDesc").value = flow.description || "";
+      paintSteps(); renderEditor();
+      pushLog(`เปิดแผน '${flow.name}' (${flow.steps.length} ขั้นตอน)`);
+    }
+    function collect() {
+      flow.name = $("flowName").value.trim();
+      flow.description = $("flowDesc").value.trim();
+      return flow;
+    }
+
+    function selectedIndex() {
+      const n = parseInt($("instSelect").value);
+      return (instances[n] && instances[n].index) || 0;
+    }
+    async function refreshLd() {
+      const r = await api().get_ldplayer();
+      const sel2 = $("ldSelect");
+      clear(sel2);
+      (r.dirs.length ? r.dirs : ["(ไม่พบ LDPlayer)"]).forEach(d => {
+        const o = el("option", { text: d.split(/[\/]/).pop() || d, attrs: { value: d, title: d } });
+        sel2.append(o);
+      });
+      if (r.current) sel2.value = r.current;
+    }
+    async function reloadInstances(list) {
+      const isel = $("instSelect");
+      const keep = (instances[parseInt(isel.value)] || {}).index;
+      instances = list || await api().get_instances();
+      fillSelect(isel, instances.map((i, n) => ({ value: n, label: i.label })));
+      if (!instances.length) return;
+      const back = instances.findIndex(i => i.index === keep);
+      isel.value = back >= 0 ? back : 0;
+    }
+    window.reloadInstancesFromPy = () => reloadInstances();
+
+    function wire() {
+      Object.keys(POPS).forEach(id => { $(id).onclick = () => togglePop(id); });
+      document.addEventListener("mousedown", e => {
+        if (!popOpen) return;
+        if ($(popOpen).contains(e.target) || $(POPS[popOpen]).contains(e.target)) return;
+        setPop(popOpen, false);
+      });
+
+      wireSplit("paneLSplit",
+        e => setPaneWidth("L", e.clientX - $("tplPane").getBoundingClientRect().left),
+        d => setPaneWidth("L", UIP.paneL + d));
+      wireSplit("paneRSplit",
+        e => setPaneWidth("R", $("editorPane").getBoundingClientRect().right - e.clientX),
+        d => setPaneWidth("R", UIP.paneR - d));
+      wireSplit("logSplit",
+        e => setLogMode("custom", $("logBar").getBoundingClientRect().bottom - e.clientY),
+        d => setLogMode("custom", UIP.logH - d));
+
+      $("spamToggle").onclick = () => {
+        spamWish = $("spamDetails").style.display === "none";
+        setSpam(spamWish);
+      };
+      $("spamAdd").onclick = () => { spamWish = true; renderSpamBar(); setSpam(true); $("spamFrom").focus(); };
+      $("tplToggle").onclick = () => togglePane("tplPane");
+      $("editorToggle").onclick = () => togglePane("editorPane");
+      $("capFold").onclick = () => setCap($("capBody").style.display === "none");
+      window.addEventListener("resize", autoFold);
+      window.addEventListener("resize", savePrefsSoon);
+      window.addEventListener("keydown", e => {
+        if (e.key === "Escape" && popOpen) { e.preventDefault(); closePop(true); return; }
+        if (!e.altKey) return;
+        if (e.key === "1") { e.preventDefault(); togglePane("tplPane"); }
+        if (e.key === "2") { e.preventDefault(); togglePane("editorPane"); }
+      });
+
+      $("stepSearch").oninput = () => { findAt = -1; applyStepFind(); };
+      $("stepSearch").onkeydown = e => {
+        if (e.key !== "Enter") return;
+        e.preventDefault();
+        findNext();
+      };
+
+      $("logMode").onclick = () => setLogMode(nextLogMode());
+      $("clearLog").onclick = () => { $("log").textContent = ""; };
+      $("copyLog").onclick = () => {
+        const text = $("log").textContent;
+        const btn = $("copyLog");
+        if (!text.trim()) return flashBtn(btn, "ยังไม่มีข้อความ");
+        copyText(text, () => flashBtn(btn, "คัดลอกแล้ว"), () => flashBtn(btn, "คัดลอกไม่ได้"));
+      };
+
+      $("tplSearch").oninput = renderTemplates;
+      $("tplRefresh").onclick = () => loadTemplates(false);
+      $("calBtn").onclick = () => api().open_calibrator(selectedIndex());
+      let tplFocusTimer = null;
+      window.addEventListener("focus", () => {
+        clearTimeout(tplFocusTimer);
+        tplFocusTimer = setTimeout(() => loadTemplates(true), 400);
+      });
+
+      $("flowSelect").onchange = e => { closePop(true); openFlow(e.target.value); };
+      $("newFlow").onclick = () => {
+        flow = { name: "", description: "", steps: [], group_defs: [], jump: { ...JUMP_DEFAULTS } };
+        sel = null;
+        collapsedSteps.clear();
+        runOpen.clear();
+        $("flowName").value = ""; $("flowDesc").value = "";
+        paintSteps(); renderEditor();
+        $("flowName").focus();
+      };
+      $("saveFlow").onclick = async () => {
+        const r = await api().save_flow(collect());
+        if (!r.ok) return pushLog("บันทึกไม่สำเร็จ: " + r.error);
+        setWarnings(r.warnings);
+        await refreshFlows(r.name);
+      };
+      $("warnJump").onclick = () => {
+        const path = warnList.length ? String(warnList[0].path) : null;
+        if (path == null) return;
+        foldStep(path.split(".")[0], false);
+        selectStep(path);
+        const card = document.querySelector(`.step[data-path="${path}"]`);
+        if (card) { card.scrollIntoView({ block: "center" }); card.focus(); }
+      };
+      $("undoFlow").onclick = () => armed($("undoFlow"), "ทับของตอนนี้ด้วยเวอร์ชันก่อนบันทึกล่าสุด?", async () => {
+        const name = $("flowSelect").value;
+        if (!name) return;
+        const r = await api().restore_flow(name);
+        if (r && r.ok) openFlow(name);
+      });
+      $("delFlow").onclick = () => armed($("delFlow"), "กดอีกครั้งเพื่อลบแผนนี้จริง ๆ", async () => {
+        const name = $("flowSelect").value;
+        if (!name) return;
+        await api().delete_flow(name);
+        const names = await refreshFlows();
+        if (names.length) openFlow(names[0]); else $("newFlow").onclick();
+      });
+
+      $("runBtn").onclick = async () => {
+        $("capTitle").textContent = "ภาพจอตอนนี้";
+        $("capTitle").style.color = "";
+        $("capNote").classList.add("hidden");
+        const loops = $("loopEndless").checked ? 0 : (parseInt($("loops").value) || 1);
+        const r = await api().run_flow(collect(), selectedIndex(), loops);
+        if (!r.ok) pushLog("เริ่มไม่ได้: " + r.error);
+      };
+      $("loopEndless").onchange = () => {
+        $("loops").disabled = $("loopEndless").checked;
+      };
+      $("stopBtn").onclick = () => api().stop_flow();
+      $("probeBtn").onclick = async () => {
+        const picsOf = st => [st.target, ...untilList(st.until)];
+        const names = [...new Set(flow.steps.flatMap(s =>
+          [...picsOf(s), ...(s.steps || []).flatMap(picsOf)]).filter(Boolean))];
+        if (!names.length) return pushLog("ยังไม่มีรูปในแผนให้ตรวจ");
+        const r = await api().probe(selectedIndex(), names);
+        if (!r.ok) return;
+        const rank = Object.entries(r.scores).sort((a, b) => b[1] - a[1]);
+        const hit = rank.filter(([, v]) => v >= r.threshold);
+        const no = rank.filter(([, v]) => v < r.threshold);
+        const raw = names.filter(n => !(n in r.scores));
+        pushLog(`ตรวจจอ: เจอ ${hit.length} / ไม่เจอ ${no.length} / ยังไม่คาลิเบรต ${raw.length}`);
+        if (raw.length) pushLog(`   ยังไม่คาลิเบรต: ${raw.join(", ")}`);
+        no.slice(0, 8).forEach(([k, v]) => pushLog(`      ${k}  ${v.toFixed(3)}`));
+        if (no.length > 8) pushLog(`      (อีก ${no.length - 8} ใบคะแนนต่ำกว่านี้ · เกณฑ์ ${r.threshold})`);
+        hit.forEach(([k, v]) => pushLog(`   ## ${k}  ${v.toFixed(3)}`));
+      };
+      $("capBtn").onclick = async () => {
+        const r = await api().capture(selectedIndex());
+        if (!r || !r.ok) return;
+        setCap(true);
+        $("capTitle").textContent = "ภาพจอตอนนี้";
+        $("capTitle").style.color = "";
+        $("capNote").classList.add("hidden");
+        $("capImg").src = r.img; $("capImg").classList.remove("hidden");
+      };
+
+      $("ldSelect").onchange = async e => {
+        const r = await api().set_ldplayer_dir(e.target.value);
+        if (r && r.instances) reloadInstances(r.instances);
+      };
+      $("ldBrowse").onclick = async () => {
+        const r = await api().pick_ldplayer_dir();
+        if (!r || !r.ok) return;
+        await refreshLd();
+        reloadInstances(r.instances);
+      };
+      $("instRefresh").onclick = async () => {
+        const b = $("instRefresh");
+        b.disabled = true;
+        try {
+          await reloadInstances();
+          const on = instances.filter(i => i.running).length;
+          pushLog(`รีเฟรชรายชื่อจอ: ${instances.length} จอ · เปิดอยู่ ${on}`);
+        } finally { b.disabled = false; }
+      };
+      $("instRestart").onclick = () => armed($("instRestart"), "กดอีกครั้งเพื่อรีสตาร์ทจอนี้", async () => {
+        const r = await api().restart_instance(selectedIndex());
+        if (r && !r.ok) pushLog("รีสตาร์ทไม่ได้: " + r.error);
+      });
+
+      const jumpNum = (id, key, div, lo, hi) => $(id).oninput = e => {
+        const v = (parseFloat(e.target.value) || 0) / (div || 1);
+        jumpCfg()[key] = Math.max(lo, Math.min(hi, v));
+        renderSteps();
+      };
+      $("jumpOn").onchange = e => { jumpCfg().enabled = e.target.checked; renderSteps(); };
+      $("jumpMaxTaps").oninput = e => {
+        jumpCfg().max_taps = Math.max(0, Math.min(999, parseInt(e.target.value, 10) || 0));
+        renderSteps();
+      };
+      jumpNum("spamEvery", "every", 1, 0.05, 5);
+      jumpNum("jumpJitter", "jitter", 100, 0, 0.9);
+      jumpNum("jumpDouble", "double", 100, 0, 1);
+      jumpNum("jumpSlide", "slide", 100, 0, 1);
+      jumpNum("jumpSlideMs", "slide_ms", 1, 60, 2000);
+      $("spamFrom").onchange = applySpamRange;
+      $("spamTo").onchange = applySpamRange;
+      $("spamClear").onclick = () => { const j = jumpCfg(); j.start = j.end = -1; renderSteps(); };
+
+      $("steps").ondragover = e => { e.preventDefault(); edgeScroll(e.clientY); };
+      $("steps").ondrop = e => {
+        stopEdgeScroll();
+        const tpl = e.dataTransfer.getData("text/tpl");
+        if (tpl && e.target.id === "steps") {
+          flow.steps.push(newStep("tap", tpl));
+          sel = String(flow.steps.length - 1);
+          renderSteps(); renderEditor();
+        }
+      };
+      window.addEventListener("dragend", stopEdgeScroll);
+      window.addEventListener("drop", stopEdgeScroll);
+    }
+
+    function armed(btn, warnText, run) {
+      if (btn.dataset.armed === "1") {
+        btn.dataset.armed = "0";
+        btn.classList.remove("is-armed");
+        btn.title = btn.dataset.title0 || btn.title;
+        run();
+        return;
+      }
+      btn.dataset.armed = "1";
+      btn.dataset.title0 = btn.dataset.title0 || btn.title;
+      btn.title = warnText;
+      btn.classList.add("is-armed");
+      pushLog(warnText);
+      clearTimeout(btn._armTimer);
+      btn._armTimer = setTimeout(() => {
+        btn.dataset.armed = "0";
+        btn.classList.remove("is-armed");
+        btn.title = btn.dataset.title0;
+      }, 4000);
+    }
+
+    window.addEventListener("pywebviewready", async () => {
+      wire();
+      await loadPrefs();
+      applyLayout();
+      autoFold();
+      META = await api().get_meta();
+      NESTED = META.nested || NESTED;
+
+      const add = $("addBtns");
+      clear(add);
+      Object.entries(META.actions).forEach(([k, v]) => {
+        add.append(el("button", {
+          class: "btn btn-quiet",
+          attrs: { type: "button", "data-a": k },
+          on: { click: () => { closePop(true); addStep(k, ""); } },
+        }, [ico("plus"), el("span", { text: v.label })]));
+      });
+
+      await loadTemplates(true);
+      await refreshLd();
+
+      instances = await api().get_instances();
+      const isel = $("instSelect");
+      fillSelect(isel, instances.map((i, n) => ({ value: n, label: i.label })));
+      let pick = instances.findIndex(i => i.index === META.default_index);
+      if (pick < 0) pick = instances.findIndex(i => i.running);
+      isel.value = pick >= 0 ? pick : 0;
+
+      const names = await refreshFlows();
+      if (names.length) openFlow(names[0]); else { paintSteps(); renderEditor(); }
+      pushLog("พร้อมใช้งาน โหมดเดฟ");
+    });
+</script>
+</body>
+
+</html>

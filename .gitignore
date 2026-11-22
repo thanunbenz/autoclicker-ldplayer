@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+
+# local state written at runtime
+data/config/settings.json
+data/config/floweditor-ui.json
+data/config/autofit.json
+data/config/.seeded.json
+data/config/screens/
+data/logs/
+build/
+dist/
+
+#claude
+.claude

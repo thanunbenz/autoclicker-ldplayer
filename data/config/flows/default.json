@@ -1,0 +1,10 @@
+{
+  "name": "default",
+  "description": "",
+  "group_defs": [],
+  "jump": {
+    "start": -1,
+    "end": -1
+  },
+  "steps": []
+}
